@@ -1,10 +1,12 @@
 {
-  "name": "gatsby-starter-saas-marketing",
+  "name": "meetingbar-site",
   "private": true,
-  "description": "A simple one page marketing starter for saas companies",
+  "description": "Site for MeetingBar app",
   "version": "0.1.0",
-  "author": "Keegan Burkett <keegan.t.marciniak@gmail.com>",
+  "author": "Andrii Leitsius <leitsius@gmail.com>",
+  "homepage": "https://leits.github.io/",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.14.0",
     "gatsby": "^2.15.31",
     "gatsby-image": "^2.2.24",
     "gatsby-plugin-manifest": "^2.2.20",
@@ -16,12 +18,15 @@
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^2.1.29",
     "gatsby-transformer-sharp": "^2.2.20",
+    "gh-pages": "^3.1.0",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-dom": "^16.10.2",
     "react-feather": "^2.0.3",
+    "react-ga": "^3.1.2",
     "react-helmet": "^5.2.1",
+    "react-icons": "^3.10.0",
     "react-scrollspy": "^3.4.0",
     "styled-components": "^4.4.0"
   },
@@ -29,7 +34,7 @@
     "prettier": "^1.18.2"
   },
   "keywords": [
-    "gatsby"
+    "MeetingBar"
   ],
   "license": "MIT",
   "scripts": {
@@ -42,9 +47,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/leits/MeetingBar"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/leits/MeetingBar/issues"
   }
 }

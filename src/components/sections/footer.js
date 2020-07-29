@@ -7,37 +7,23 @@ const Footer = () => (
   <FooterWrapper id="footer">
     <FooterColumnContainer>
       <FooterColumn>
-        <span>Features</span>
-        <ul>
-          <li>Automation</li>
-          <li>Rewards</li>
-        </ul>
-      </FooterColumn>
-      <FooterColumn>
         <span>Resources</span>
         <ul>
-          <li>Compare</li>
-          <li>Blog</li>
-        </ul>
-      </FooterColumn>
-      <FooterColumn>
-        <span>Company</span>
-        <ul>
-          <li>About Us</li>
-          <li>Careers</li>
+          <li>Github</li>
+          <li>Bug Tracker</li>
         </ul>
       </FooterColumn>
       <FooterColumn>
         <span>Social</span>
         <ul>
-          <li>LinkedIn</li>
-          <li>Instagram</li>
+          <li>ProductHunt</li>
+          <li>Patreon</li>
         </ul>
       </FooterColumn>
     </FooterColumnContainer>
-    <BrandContainer>
-      <Logo>Finance</Logo>
-    </BrandContainer>
+    {/* <BrandContainer>
+      <Logo>MeetingBar</Logo>
+    </BrandContainer> */}
   </FooterWrapper>
 )
 

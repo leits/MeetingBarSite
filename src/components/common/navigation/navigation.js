@@ -3,6 +3,8 @@ import AnchorLink from "react-anchor-link-smooth-scroll"
 import Scrollspy from "react-scrollspy"
 import { Menu, X } from "react-feather"
 
+import { FaGithub } from 'react-icons/fa';
+
 import { Container } from "../../global"
 import {
   Nav,
@@ -15,7 +17,7 @@ import {
   ActionsContainer,
 } from "./style"
 
-const NAV_ITEMS = ["Features", "Product", "Pricing", ""]
+const NAV_ITEMS = [""]
 
 export default class Navigation extends Component {
   state = {
@@ -77,11 +79,11 @@ export default class Navigation extends Component {
           <Brand>
             <Scrollspy offset={-64} item={["top"]} currentClassName="active">
               <AnchorLink href="#top" onClick={this.closeMobileMenu}>
-                Finance
+                MeetingBar
               </AnchorLink>
             </Scrollspy>
           </Brand>
-          <Mobile>
+          {/* <Mobile>
             <button
               onClick={this.toggleMobileMenu}
               style={{ color: "black", background: "none" }}
@@ -92,20 +94,21 @@ export default class Navigation extends Component {
                 <Menu size={24} alt="open menu" />
               )}
             </button>
-          </Mobile>
+          </Mobile> */}
 
-          <Mobile hide>{this.getNavList({})}</Mobile>
+          {/* <Mobile hide>{this.getNavList({})}</Mobile> */}
           <ActionsContainer>
-            <button>Sign up</button>
+            <a href="https://github.com/leits/MeetingBar"><FaGithub /></a>
+            <button>Donate</button>
           </ActionsContainer>
         </StyledContainer>
-        <Mobile>
+        {/* <Mobile>
           {mobileMenuOpen && (
             <MobileMenu>
               <Container>{this.getNavList({ mobile: true })}</Container>
             </MobileMenu>
           )}
-        </Mobile>
+        </Mobile> */}
       </Nav>
     )
   }

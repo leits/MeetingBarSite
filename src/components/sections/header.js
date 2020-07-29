@@ -8,7 +8,7 @@ import { Container } from "../global"
 const Header = () => {
   const data = useStaticQuery(graphql`
     query {
-      file(sourceInstanceName: { eq: "product" }, name: { eq: "green-skew" }) {
+      file(sourceInstanceName: { eq: "product" }, name: { eq: "screenshot" }) {
         childImageSharp {
           fluid(maxWidth: 1000) {
             ...GatsbyImageSharpFluid_tracedSVG
@@ -27,28 +27,18 @@ const Header = () => {
       <Container>
         <Flex>
           <HeaderTextGroup>
-            <Subtitle>Personal Finance</Subtitle>
+            <Subtitle>MacOS</Subtitle>
             <h1>
-              All your money,
-              <br />
-              one account
+            Your next meeting always before your eyes
             </h1>
             <h2>
-              We're building next generation personal finance tools. Sign up to
-              get early access.
+              Integrated with Google Meet and Zoom
+              so you can quickly join meetings from event or create ad hoc meeting
             </h2>
-            <HeaderForm onSubmit={handleSubmit}>
-              <HeaderInput placeholder="Your email" />
-              <HeaderButton>Early access</HeaderButton>
-            </HeaderForm>
-            <FormSubtitle>
-              Already have a beta account?{" "}
-              <FormSubtitleLink to="/">Sign in</FormSubtitleLink>
-            </FormSubtitle>
           </HeaderTextGroup>
           <ImageWrapper>
             <StyledImage fluid={data.file.childImageSharp.fluid} />
-            <br />
+            {/* <br /> */}
           </ImageWrapper>
         </Flex>
       </Container>
@@ -203,6 +193,5 @@ const StyledImage = styled(Img)`
   }
   @media (max-width: ${props => props.theme.screen.sm}) {
     width: 300px;
-    display: none;
   }
 `

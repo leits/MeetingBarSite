@@ -1,4 +1,5 @@
 import React from "react"
+import ReactGA from 'react-ga';
 
 import Layout from "../components/common/layout/layout"
 import SEO from "../components/common/layout/seo"
@@ -9,14 +10,17 @@ import Features from "../components/sections/features"
 import Footer from "../components/sections/footer"
 import GetStarted from "../components/sections/getstarted"
 
+ReactGA.initialize('UA-174005306-1');
+ReactGA.pageview(window.location.pathname + window.location.search);
+
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <Navigation />
     <Header />
     <Features />
-    <GetStarted />
-    <Footer />
+    {/* <GetStarted /> */}
+    {/* <Footer /> */}
   </Layout>
 )
 

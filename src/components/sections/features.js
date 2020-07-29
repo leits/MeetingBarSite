@@ -6,42 +6,25 @@ import { Section, Container } from "../global"
 const Features = () => (
   <Section id="features">
     <StyledContainer>
-      <Subtitle>Features</Subtitle>
-      <SectionTitle>Smart money management</SectionTitle>
+      <Subtitle>Installation</Subtitle>
       <FeaturesGrid>
         <FeatureItem>
-          <FeatureTitle>Notifications</FeatureTitle>
+          <FeatureTitle>manual</FeatureTitle>
           <FeatureText>
-            Receive budget and spending alerts based on your favorite triggers.
+            <Button
+              href="https://github.com/leits/MeetingBar"
+              target="_blank"
+              rel="noopener">
+              Download
+          </Button>
           </FeatureText>
         </FeatureItem>
         <FeatureItem>
-          <FeatureTitle>Security</FeatureTitle>
+          <FeatureTitle>homebrew</FeatureTitle>
           <FeatureText>
-            Your data is always safe with us as we use the latest security
-            protocols.
-          </FeatureText>
-        </FeatureItem>
-        <FeatureItem>
-          <FeatureTitle>Automation</FeatureTitle>
-          <FeatureText>
-            Create smart automated workflows and triggers for your money.
-          </FeatureText>
-        </FeatureItem>
-        <FeatureItem>
-          <FeatureTitle>Aggregation</FeatureTitle>
-          <FeatureText>
-            Easily link up to 5 banks to your finance account.
-          </FeatureText>
-        </FeatureItem>
-        <FeatureItem>
-          <FeatureTitle>Payments</FeatureTitle>
-          <FeatureText>Send money to friends and family with ease.</FeatureText>
-        </FeatureItem>
-        <FeatureItem>
-          <FeatureTitle>Rewards</FeatureTitle>
-          <FeatureText>
-            High interest and rewards for hitting your goals.
+            <Code>
+              <pre>brew cask install meetingbar</pre>
+            </Code>
           </FeatureText>
         </FeatureItem>
       </FeaturesGrid>
@@ -52,6 +35,31 @@ const Features = () => (
 export default Features
 
 const StyledContainer = styled(Container)``
+
+const Code = styled.p`
+  display: inline-block;
+  // border-radius: 3px;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 1rem;
+  // width: 20rem;
+  text-align: left;
+  // background: transparent;
+  // color: white;
+  border: 2px solid white;
+  background: #F6F8FA;
+`
+
+const Button = styled.a`
+  display: inline-block;
+  border-radius: 3px;
+  padding: 0.5rem 0;
+  margin: 0.5rem 1rem;
+  width: 11rem;
+  background: transparent;
+  color: grey;
+  border: 2px solid grey;
+  text-decoration: none;
+`
 
 const SectionTitle = styled.h3`
   color: ${props => props.theme.color.primary};
@@ -65,7 +73,7 @@ const Subtitle = styled.h5`
   font-size: 16px;
   color: ${props => props.theme.color.accent};
   letter-spacing: 0px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   text-align: center;
 `
 
@@ -78,7 +86,7 @@ const FeaturesGrid = styled.div`
   grid-row-gap: 35px;
   @media (max-width: ${props => props.theme.screen.sm}) {
     grid-template-columns: 1fr;
-    padding: 0 64px;
+    // padding: 0 64px;
   }
 `
 
