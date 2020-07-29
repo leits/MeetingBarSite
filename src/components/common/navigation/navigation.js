@@ -99,7 +99,7 @@ export default class Navigation extends Component {
           {/* <Mobile hide>{this.getNavList({})}</Mobile> */}
           <ActionsContainer>
             <a href="https://github.com/leits/MeetingBar"><FaGithub /></a>
-            <button>Donate</button>
+            <a href="https://www.patreon.com/meetingbar"><button>Donate</button></a>
           </ActionsContainer>
         </StyledContainer>
         {/* <Mobile>

@@ -4,7 +4,7 @@
   "description": "Site for MeetingBar app",
   "version": "0.1.0",
   "author": "Andrii Leitsius <leitsius@gmail.com>",
-  "homepage": "https://leits.github.io/",
+  "homepage": "https://meetingbar.onrender.com/",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.14.0",
     "gatsby": "^2.15.31",

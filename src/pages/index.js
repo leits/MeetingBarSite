@@ -11,7 +11,7 @@ import Footer from "../components/sections/footer"
 import GetStarted from "../components/sections/getstarted"
 
 ReactGA.initialize('UA-174005306-1');
-ReactGA.pageview(window.location.pathname + window.location.search);
+ReactGA.pageview("landing");
 
 const IndexPage = () => (
   <Layout>

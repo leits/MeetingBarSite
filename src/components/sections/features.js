@@ -12,7 +12,7 @@ const Features = () => (
           <FeatureTitle>manual</FeatureTitle>
           <FeatureText>
             <Button
-              href="https://github.com/leits/MeetingBar"
+              href="https://github.com/leits/MeetingBar/releases/latest/download/MeetingBar.dmg"
               target="_blank"
               rel="noopener">
               Download
