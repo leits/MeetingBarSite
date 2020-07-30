@@ -30,7 +30,7 @@ export const Container = styled.div`
 `
 
 export const Section = styled.section`
-  padding: 80px 0;
+  padding: 35px 0;
   overflow: hidden;
   background-color: ${props => {
     switch (props.accent) {

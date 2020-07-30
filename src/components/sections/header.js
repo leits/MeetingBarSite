@@ -37,7 +37,7 @@ const Header = () => {
             </h2>
           </HeaderTextGroup>
           <ImageWrapper>
-            <StyledImage fluid={data.file.childImageSharp.fluid} />
+            <StyledImage loading="eager" fluid={data.file.childImageSharp.fluid} />
             {/* <br /> */}
           </ImageWrapper>
         </Flex>
@@ -50,7 +50,7 @@ export default Header
 
 const HeaderWrapper = styled.header`
   background-color: #f8f8f8;
-  padding: 160px 0 80px 0;
+  padding: 150px 0 80px 0;
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
   @media (max-width: ${props => props.theme.screen.md}) {
