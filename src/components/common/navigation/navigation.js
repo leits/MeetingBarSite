@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import AnchorLink from "react-anchor-link-smooth-scroll"
 import Scrollspy from "react-scrollspy"
 import { Menu, X } from "react-feather"
+import ReactGA from 'react-ga';
 
 import { FaGithub } from 'react-icons/fa';
 
@@ -98,8 +99,20 @@ export default class Navigation extends Component {
 
           {/* <Mobile hide>{this.getNavList({})}</Mobile> */}
           <ActionsContainer>
-            <a href="https://github.com/leits/MeetingBar"><FaGithub /></a>
-            <a href="https://www.patreon.com/meetingbar"><button>Donate</button></a>
+            <a
+              href="https://github.com/leits/MeetingBar"
+              onClick={()=> ReactGA.event({category: 'User', action: 'Click Github'})}
+              target="_blank"
+              rel="noopener">
+              <FaGithub />
+            </a>
+            <a
+              href="https://www.patreon.com/meetingbar"
+              onClick={()=> ReactGA.event({category: 'User', action: 'Click Patreon'})}
+              target="_blank"
+              rel="noopener">
+              <button>Donate</button>
+            </a>
           </ActionsContainer>
         </StyledContainer>
         {/* <Mobile>

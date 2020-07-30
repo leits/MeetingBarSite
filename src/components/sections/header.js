@@ -11,7 +11,7 @@ const Header = () => {
       file(sourceInstanceName: { eq: "product" }, name: { eq: "screenshot" }) {
         childImageSharp {
           fluid(maxWidth: 1000) {
-            ...GatsbyImageSharpFluid_tracedSVG
+            ...GatsbyImageSharpFluid
           }
         }
       }

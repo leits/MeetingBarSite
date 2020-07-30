@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import ReactGA from 'react-ga';
 
 import { Section, Container } from "../global"
 
@@ -13,6 +14,7 @@ const Features = () => (
           <FeatureText>
             <Button
               href="https://github.com/leits/MeetingBar/releases/latest/download/MeetingBar.dmg"
+              onClick={()=> ReactGA.event({category: 'User', action: 'Click Download'})}
               target="_blank"
               rel="noopener">
               Download
