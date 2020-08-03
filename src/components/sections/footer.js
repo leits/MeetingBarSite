@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 import { Container } from "../global"
 
@@ -9,15 +10,21 @@ const Footer = () => (
       <FooterColumn>
         <span>Resources</span>
         <ul>
-          <li>Github</li>
-          <li>Bug Tracker</li>
+          <li><OutboundLink href="https://github.com/leits/MeetingBar">Github</OutboundLink></li>
+          <li><OutboundLink href="https://www.patreon.com/meetingbar">Patreon</OutboundLink></li>
         </ul>
       </FooterColumn>
       <FooterColumn>
         <span>Social</span>
         <ul>
-          <li>ProductHunt</li>
-          <li>Patreon</li>
+          <li><OutboundLink href="https://www.producthunt.com/posts/meetingbar">ProductHunt</OutboundLink></li>
+          <li><OutboundLink href="https://www.reddit.com/r/apple/comments/i17qex/your_next_meeting_always_before_your_eyes_in">Reddit</OutboundLink></li>
+        </ul>
+      </FooterColumn>
+      <FooterColumn>
+        <span>Contact</span>
+        <ul>
+          <li><OutboundLink href="mailto:leits.dev@gmail.com?subject=MeetingBar">Email</OutboundLink></li>
         </ul>
       </FooterColumn>
     </FooterColumnContainer>
@@ -31,6 +38,10 @@ const FooterWrapper = styled.footer`
   background-color: white;
   margin: 80px 0 0;
   padding: 0 0 80px;
+  a {
+    color: ${props => props.theme.color.black.regular};
+    text-decoration: none;
+  }
 `
 
 const Logo = styled.div`

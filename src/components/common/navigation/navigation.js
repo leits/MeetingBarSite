@@ -1,8 +1,8 @@
 import React, { Component } from "react"
-import AnchorLink from "react-anchor-link-smooth-scroll"
+import { Link } from "gatsby"
 import Scrollspy from "react-scrollspy"
 import { Menu, X } from "react-feather"
-import ReactGA from 'react-ga';
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 import { FaGithub } from 'react-icons/fa';
 
@@ -18,7 +18,7 @@ import {
   ActionsContainer,
 } from "./style"
 
-const NAV_ITEMS = [""]
+const NAV_ITEMS = ["About", "FAQ"]
 
 export default class Navigation extends Component {
   state = {
@@ -50,10 +50,10 @@ export default class Navigation extends Component {
     }
   }
 
-  getNavAnchorLink = item => (
-    <AnchorLink href={`#${item.toLowerCase()}`} onClick={this.closeMobileMenu}>
+  getNavLink = item => (
+    <Link to={`/${item.toLowerCase()}`} onClick={this.closeMobileMenu}>
       {item}
-    </AnchorLink>
+    </Link>
   )
 
   getNavList = ({ mobile = false }) => (
@@ -65,7 +65,7 @@ export default class Navigation extends Component {
         offset={-64}
       >
         {NAV_ITEMS.map(navItem => (
-          <NavItem key={navItem}>{this.getNavAnchorLink(navItem)}</NavItem>
+          <NavItem key={navItem}>{this.getNavLink(navItem)}</NavItem>
         ))}
       </Scrollspy>
     </NavListWrapper>
@@ -78,13 +78,11 @@ export default class Navigation extends Component {
       <Nav {...this.props} scrolled={this.state.hasScrolled}>
         <StyledContainer>
           <Brand>
-            <Scrollspy offset={-64} item={["top"]} currentClassName="active">
-              <AnchorLink href="#top" onClick={this.closeMobileMenu}>
-                MeetingBar
-              </AnchorLink>
-            </Scrollspy>
+            <Link to="/">
+              MeetingBar
+            </Link>
           </Brand>
-          {/* <Mobile>
+          <Mobile>
             <button
               onClick={this.toggleMobileMenu}
               style={{ color: "black", background: "none" }}
@@ -95,33 +93,31 @@ export default class Navigation extends Component {
                 <Menu size={24} alt="open menu" />
               )}
             </button>
-          </Mobile> */}
+          </Mobile>
 
-          {/* <Mobile hide>{this.getNavList({})}</Mobile> */}
+          <Mobile hide>{this.getNavList({})}</Mobile>
           <ActionsContainer>
-            <a
+            <OutboundLink
               href="https://github.com/leits/MeetingBar"
-              onClick={()=> ReactGA.event({category: 'User', action: 'Click Github'})}
               target="_blank"
               rel="noopener">
               <FaGithub />
-            </a>
-            <a
+            </OutboundLink>
+            <OutboundLink
               href="https://www.patreon.com/meetingbar"
-              onClick={()=> ReactGA.event({category: 'User', action: 'Click Patreon'})}
               target="_blank"
               rel="noopener">
               <button>Donate</button>
-            </a>
+            </OutboundLink>
           </ActionsContainer>
         </StyledContainer>
-        {/* <Mobile>
+        <Mobile>
           {mobileMenuOpen && (
             <MobileMenu>
               <Container>{this.getNavList({ mobile: true })}</Container>
             </MobileMenu>
           )}
-        </Mobile> */}
+        </Mobile>
       </Nav>
     )
   }

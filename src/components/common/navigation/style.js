@@ -76,11 +76,10 @@ export const Brand = styled.div`
     list-style: none;
     margin: 0;
     padding: 0;
-
-    a {
-      color: ${props => props.theme.color.black.regular};
-      text-decoration: none;
-    }
+  }
+  a {
+    color: ${props => props.theme.color.black.regular};
+    text-decoration: none;
   }
 `
 export const ActionsContainer = styled.div`

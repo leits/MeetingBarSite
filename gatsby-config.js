@@ -8,6 +8,14 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdown-pages`,
+        path: `${__dirname}/src/markdown-pages`,
+      },
+    },
+    `gatsby-transformer-remark`,
+    {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
         fonts: [
@@ -38,6 +46,19 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/icon256.png`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-174005306-1",
+        head: true,
+        anonymize: true,
+        respectDNT: true,
+        exclude: ["/preview/**"],
+        pageTransitionDelay: 0,
+        defer: false,
+        sampleRate: 100,
       },
     },
   ],
