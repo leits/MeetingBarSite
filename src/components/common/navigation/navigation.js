@@ -77,25 +77,25 @@ export default class Navigation extends Component {
     return (
       <Nav {...this.props} scrolled={this.state.hasScrolled}>
         <StyledContainer>
+                      <Mobile>
+              <button
+                onClick={this.toggleMobileMenu}
+                style={{ color: "black", background: "none" }}
+              >
+                {this.state.mobileMenuOpen ? (
+                  <X size={24} alt="close menu" />
+                ) : (
+                  <Menu size={24} alt="open menu" />
+                )}
+              </button>
+            </Mobile>
           <Brand>
             <Link to="/">
               MeetingBar
             </Link>
           </Brand>
-          <Mobile>
-            <button
-              onClick={this.toggleMobileMenu}
-              style={{ color: "black", background: "none" }}
-            >
-              {this.state.mobileMenuOpen ? (
-                <X size={24} alt="close menu" />
-              ) : (
-                <Menu size={24} alt="open menu" />
-              )}
-            </button>
-          </Mobile>
-
           <Mobile hide>{this.getNavList({})}</Mobile>
+
           <ActionsContainer>
             <OutboundLink
               href="https://github.com/leits/MeetingBar"
