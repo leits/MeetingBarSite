@@ -10,21 +10,22 @@ const Footer = () => (
       <FooterColumn>
         <span>Resources</span>
         <ul>
-          <li><OutboundLink href="https://github.com/leits/MeetingBar">Github</OutboundLink></li>
-          <li><OutboundLink href="https://www.patreon.com/meetingbar">Patreon</OutboundLink></li>
+          <li><OutboundLink target="_blank" rel="noopener" href="https://github.com/leits/MeetingBar">Github</OutboundLink></li>
+          <li><OutboundLink target="_blank" rel="noopener" href="https://www.patreon.com/meetingbar">Patreon</OutboundLink></li>
         </ul>
       </FooterColumn>
       <FooterColumn>
         <span>Social</span>
         <ul>
-          <li><OutboundLink href="https://www.producthunt.com/posts/meetingbar">ProductHunt</OutboundLink></li>
-          <li><OutboundLink href="https://www.reddit.com/r/apple/comments/i17qex/your_next_meeting_always_before_your_eyes_in">Reddit</OutboundLink></li>
+          <li><OutboundLink target="_blank" rel="noopener" href="https://www.producthunt.com/posts/meetingbar">ProductHunt</OutboundLink></li>
+          <li><OutboundLink target="_blank" rel="noopener" href="https://www.reddit.com/r/apple/comments/i17qex/your_next_meeting_always_before_your_eyes_in">Reddit</OutboundLink></li>
         </ul>
       </FooterColumn>
       <FooterColumn>
         <span>Contact</span>
         <ul>
-          <li><OutboundLink href="mailto:leits.dev@gmail.com?subject=MeetingBar">Email</OutboundLink></li>
+          <li><OutboundLink target="_blank" rel="noopener" href="mailto:leits.dev@gmail.com?subject=MeetingBar">Email</OutboundLink></li>
+          <li><OutboundLink target="_blank" rel="noopener" href="https://twitter.com/leits_dev">Twitter</OutboundLink></li>
         </ul>
       </FooterColumn>
     </FooterColumnContainer>
