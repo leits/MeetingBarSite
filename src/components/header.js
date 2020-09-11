@@ -99,23 +99,10 @@ const Header = () => {
   
 
   let navigation
-  if (detectMobileAndTablet(windowWidth)) {
-    navigation = (
-      <>
-        <StyledBurger
-          aria-controls="sidebar"
-          open={open}
-          onClick={() => setOpen(!open)}
-        >
-          <div />
-          <div />
-          <div />
-        </StyledBurger>
-        <Sidebar id="sidebar" open={open} setOpen={setOpen} />
-      </>
-    )
-  } else {
+  if (!detectMobileAndTablet(windowWidth)) {
     navigation = <Navbar />
+  } else {
+    navigation = null
   }
 
   return (

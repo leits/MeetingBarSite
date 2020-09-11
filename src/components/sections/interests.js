@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react"
-import PropTypes from "prop-types"
 import styled from "styled-components"
-import Img from "gatsby-image"
 import { motion, useAnimation } from "framer-motion"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faReddit, faCreativeCommonsNc } from "@fortawesome/free-brands-svg-icons"
 
 import { detectMobileAndTablet, isSSR } from "../../utils"
 import { useOnScreen }  from "../../hooks/"
@@ -108,9 +108,43 @@ const StyledInterests = styled.div`
   }
 `
 
-const Interests = ({ content }) => {
-  const { exports, frontmatter } = content[0].node
-  const { shownItems, interests } = exports
+const Interests = () => {
+
+  const shownItems = 10
+  const interests = [
+    {
+      name: "✅ Fully free",
+      icon: faCreativeCommonsNc
+    },
+    {
+      name: "⏱ Quick and easy setup",
+      icon: faReddit,
+    },
+    {
+      name: "1️⃣  One click to join meeting",
+      icon: faReddit,
+    },
+    {
+      name: "💪 Powerful preferences",
+      icon: faReddit,
+    },
+    {
+      name: "🧑‍💻 Open-source software",
+      icon: faReddit,
+    },
+    {
+      name: "🗓 Work with all calendars",
+      icon: faReddit,
+    },
+    {
+      name: "🔗 20+ meeting services",
+      icon: faReddit,
+    },
+    {
+      name: "🍃 Light and nice looking",
+      icon: faReddit,
+    },
+  ]
 
   const [shownInterests, setShownInterests] = useState(shownItems)
 
@@ -146,9 +180,9 @@ const Interests = ({ content }) => {
   const showMoreItems = () => setShownInterests(shownInterests + 4)
 
   return (
-    <StyledSection id="interests">
+    <StyledSection id="features">
       <StyledContentWrapper>
-        <h3 className="section-title">{frontmatter.title}</h3>
+        <h3 className="section-title">{"Features"}</h3>
         <StyledInterests itemCount={interests.length} ref={ref}>
           {interests.slice(0, shownInterests).map(({ name, icon }, key) => (
             <motion.div 
@@ -158,7 +192,8 @@ const Interests = ({ content }) => {
               initial={{ opacity: 0, scaleY: 0 }}
               animate={iControls}
             >
-                <Img className="icon" fixed={icon.childImageSharp.fixed} /> {name}
+                {/* <FontAwesomeIcon className="icon" icon={icon} />  */}
+                {name}
             </motion.div>
           ))}
           {shownInterests < interests.length && (
@@ -177,20 +212,6 @@ const Interests = ({ content }) => {
       </StyledContentWrapper>
     </StyledSection>
   )
-}
-
-Interests.propTypes = {
-  content: PropTypes.arrayOf(
-    PropTypes.shape({
-      node: PropTypes.shape({
-        exports: PropTypes.shape({
-          interests: PropTypes.array.isRequired,
-          shownItems: PropTypes.number.isRequired,
-        }).isRequired,
-        frontmatter: PropTypes.object.isRequired,
-      }).isRequired,
-    }).isRequired
-  ).isRequired,
 }
 
 export default Interests

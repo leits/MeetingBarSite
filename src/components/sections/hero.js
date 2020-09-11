@@ -1,10 +1,11 @@
-import React, { useEffect, useContext } from "react"
+import React, { useEffect, useContext, useRef } from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { motion, useAnimation } from "framer-motion"
 
+import { useOnScreen } from "../../hooks/"
 import Context from "../../context/"
 import ContentWrapper from "../../styles/ContentWrapper"
 import Underlining from "../../styles/Underlining"
@@ -58,6 +59,15 @@ const StyledContentWrapper = styled(ContentWrapper)`
       font-size: 1.125rem;
       margin-bottom: 2rem;
     }
+    .image-content {
+      width: 100%;
+      max-width: 30rem;
+      margin-top: 1rem;
+      margin-left: 0;
+      @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
+        margin-left: 2rem;
+      }
+    }
   }
 `
 
@@ -72,6 +82,14 @@ const Hero = ({ content }) => {
   const eControls = useAnimation()
   const sControls = useAnimation()
   const uControls = useAnimation()
+
+  // Required for animating the image
+  const iRef = useRef()
+  const iOnScreen = useOnScreen(iRef)
+  const iVariants = {
+    hidden: { opacity: 0, x: 20 },
+    visible: { opacity: 1, x: 0 },
+  }
 
   // Start Animations after the splashScreen sequence is done
   useEffect(() => {
@@ -108,25 +126,39 @@ const Hero = ({ content }) => {
           <h1 className="title">
             <div className="greetings">
               {frontmatter.greetings}
-              <motion.div animate={eControls} style={{ originX: 0.7, originY: 0.7 }}>
+              {/* <motion.div animate={eControls} style={{ originX: 0.7, originY: 0.7 }}>
                 <Img className="emoji" fluid={frontmatter.icon.childImageSharp.fluid} />
-              </motion.div>
+              </motion.div> */}
             </div>
             {frontmatter.title}
           </h1>
-          <h2 className="subtitle">
+          {/* <h2 className="subtitle">
+            {frontmatter.subtitlePrefix}{" "}
+            <AnimatedUnderlining animate={uControls} color="tertiary" big>
+              {frontmatter.subtitle}
+            </AnimatedUnderlining>
+          </h2> */}
+          <div className="description">
             {frontmatter.subtitlePrefix}{" "}
             {/* Hover state color can be set in useEffect hook */}
             <AnimatedUnderlining animate={uControls} color="tertiary" big>
               {frontmatter.subtitle}
             </AnimatedUnderlining>
-          </h2>
-          <div className="description">
-            <MDXRenderer>{body}</MDXRenderer>
+            {"."}
           </div>
         </motion.div>
         <motion.div initial={{ opacity: 0, x: 20 }} animate={sControls}>
           <Social fontSize=".95rem" padding=".3rem 1.25rem" width="auto" />
+        </motion.div>
+        <motion.div
+          className="image-content"
+          ref={iRef}
+          variants={iVariants}
+        >
+          <Img
+            className="screenshot"
+            fluid={frontmatter.image.childImageSharp.fluid}
+          />
         </motion.div>
       </StyledContentWrapper>
     </StyledSection>

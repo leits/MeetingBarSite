@@ -1,0 +1,44 @@
+---
+title: "FAQ"
+---
+
+import Underlining from "../../styles/Underlining";
+import { OutboundLink } from 'gatsby-plugin-gtag'
+
+
+<h2>I try to install this app, but I have warnings from Apple and can't install/open</h2>
+
+Apple isn't very friendly to software distributed outside of AppStore.
+This app is fully opensource and doesn't have any security issue.
+For installing it, you need to:
+
+* Allow installing software outside of AppStore before installation
+* Allow opening the app from Preferences after installation
+
+Follow this official from Apple Support to do this:
+
+* <OutboundLink target="_blank" rel="nofollow noopener noreferrer" href={`https://support.apple.com/en-us/HT202491`}> <Underlining color="secondary" hoverColor="secondary"> Safely open apps on your Mac </Underlining> </OutboundLink> from Apple Support Guides
+
+<h2>I don't use the macOS calendar but have Google Calendar/Outlook/any other calendar. How can I use this app?</h2>
+
+Follow this simple apple guide to integrate your calendar to macOS calendar:
+
+* <OutboundLink target="_blank" rel="nofollow noopener noreferrer" href={`https://support.apple.com/guide/calendar/add-or-delete-calendar-accounts-icl4308d6701/mac`}> <Underlining color="secondary" hoverColor="secondary"> Add a calendar account</Underlining> </OutboundLink> from Apple Support Guides
+
+<h2>The application takes a long time to update calendar changes</h2>
+
+The application is updated immediately after changes to the macOS calendar app.
+By default, the calendar app update subscribed calendars only every 15 minutes.
+But you can reduce it manually:
+
+* <OutboundLink target="_blank" rel="nofollow noopener noreferrer" href={`https://support.apple.com/en-gb/guide/calendar/icl1024/mac`}> <Underlining color="secondary" hoverColor="secondary"> Refresh calendars on Mac </Underlining> </OutboundLink> from Apple Support Guides
+
+<h2>Will there be an app for Windows?</h2>
+
+No. The application based on the macOS Calendar API, which is not compatible with the Windows calendar.
+
+***
+
+<h2>There is no question you are looking for?</h2>
+
+Please <OutboundLink target="_blank" rel="nofollow noopener noreferrer" href={`https://github.com/leits/MeetingBar/issues/new`}> <Underlining color="secondary" hoverColor="secondary"> add an issue</Underlining> </OutboundLink>

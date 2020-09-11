@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useContext } from "react"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from "styled-components"
 import SkeletonLoader from "tiny-skeleton-loader-react"
 import { motion, useAnimation } from "framer-motion"
+import { faReddit, faHackerNews, faProductHunt } from "@fortawesome/free-brands-svg-icons"
+import { OutboundLink } from 'gatsby-plugin-gtag'
 
 import Context from "../../context"
 import config from "../../config"
@@ -127,13 +130,30 @@ const Articles = () => {
       if (isIntroDone) {
         await articlesControls.start({ opacity: 1, y: 0, transition: { delay: 1 } })
         // MediumRssFeed is set in config.js
-        fetch(mediumRssFeed, { headers: { Accept: "application/json" } })
-        .then(res => res.json())
-        // Feed also contains comments, therefore we filter for articles only
-        .then(data => data.items.filter(item => item.categories.length > 0))
-        .then(newArticles => newArticles.slice(0, MAX_ARTICLES))
-        .then(articles => setArticles(articles))
-        .catch(error => console.log(error))
+        setArticles([
+          {
+            title: "Posted at /r/apple with 250+ upvotes!",
+            link: "https://www.reddit.com/r/apple/comments/i17qex/your_next_meeting_always_before_your_eyes_in/",
+            pubDate: "2020-07-31",
+            categories: ["", "", "Reddit"],
+            icon: faReddit
+          },
+          {
+            title: "Raised up to #1 with 130+ points",
+            link: "https://news.ycombinator.com/item?id=23991111",
+            pubDate: "2020-07-30",
+            categories: ["", "", "HackerNews"],
+            icon: faHackerNews
+          },
+          {
+            title: "Launched with 400+ upvotes!",
+            link: "https://www.producthunt.com/posts/meetingbar",
+            description: "MeetingBar is a macOS menu bar app for your calendar meetings. Integrated with Google Meet and Zoom so you can quickly join meetings from event or create ad hoc meeting.",
+            pubDate: "2020-05-31",
+            categories: ["", "", "ProductHunt"],
+            icon: faProductHunt
+          },
+        ])
       }
     }
     loadArticles()
@@ -146,11 +166,11 @@ const Articles = () => {
       animate={articlesControls}
     >
       <StyledContentWrapper>
-        <h3 className="section-title">Latest Articles on Medium</h3>
+        <h3 className="section-title">Featured on</h3>
         <div className="articles">
           {articles
             ? articles.map(item => (
-                <a
+                <OutboundLink
                   href={item.link}
                   target="_blank"
                   rel="nofollow noopener noreferrer"
@@ -160,6 +180,8 @@ const Articles = () => {
                 >
                   <div className="card">
                     <span className="category">
+                      <FontAwesomeIcon icon={item.icon} />
+                      {" "}
                       <Underlining color="tertiary" hoverColor="secondary">
                         {item.categories[2]}
                       </Underlining>
@@ -167,7 +189,7 @@ const Articles = () => {
                     <h4 className="title">{item.title}</h4>
                     <span className="date">{parseDate(item.pubDate)}</span>
                   </div>
-                </a>
+                </OutboundLink>
               ))
             : [...Array(MAX_ARTICLES)].map((i, key) => (
               <div className="card" key={key}>

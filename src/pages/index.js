@@ -14,12 +14,12 @@ import { splashScreen } from "../config"
 
 const IndexPage = ({ data }) => (
   <Layout splashScreen={splashScreen}>
-    <SEO title="Portfolio Minimal - A Gatsby Starter." />
+    <SEO title="MeetingBar" />
     <Hero content={data.hero.edges} />
     {/* Articles is populated via Medium RSS Feed fetch */}
     <Articles />
-    <About content={data.about.edges} />
-    <Interests content={data.interests.edges} />
+    {/* <About content={data.about.edges} /> */}
+    <Interests />
     <Projects content={data.projects.edges} />
     <Contact content={data.contact.edges} />
   </Layout>
@@ -42,9 +42,9 @@ export const pageQuery = graphql`
           title
           subtitlePrefix
           subtitle
-          icon {
+          image {
             childImageSharp {
-              fluid(maxWidth: 60, quality: 90) {
+              fluid(maxWidth: 400, quality: 90) {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -66,28 +66,6 @@ export const pageQuery = graphql`
               }
             }
           }
-        }
-      }
-    }
-  }
-  interests: allMdx(filter: {fileAbsolutePath: {regex: "/interests/"}}) {
-    edges {
-      node {
-        exports {
-          shownItems
-          interests {
-            name
-            icon {
-              childImageSharp {
-                fixed(width: 20, height: 20, quality: 90) {
-                  ...GatsbyImageSharpFixed
-                }
-              }
-            }
-          }
-        }
-        frontmatter {
-          title
         }
       }
     }

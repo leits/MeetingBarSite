@@ -37,11 +37,11 @@ const StyledContentWrapper = styled(ContentWrapper)`
   }
 `
 
-const Imprint = ({ data }) => {
-  const { body, frontmatter } = data.imprint.edges[0].node
+const FAQ = ({ data }) => {
+  const { body, frontmatter } = data.faq.edges[0].node
   return (
     <Layout splashScreen={false}>
-      <SEO title="Imprint - Portfolio Minimal" meta={[{ name: 'robots', content: 'noindex'}]} />
+      <SEO title="MeetingBar FAQ" meta={[{ name: 'robots', content: 'noindex'}]} />
       <StyledSection id={frontmatter.title}>
         <StyledContentWrapper>
           <h1>{frontmatter.title}</h1>
@@ -52,9 +52,9 @@ const Imprint = ({ data }) => {
   )
 }
 
-Imprint.propTypes = {
+FAQ.propTypes = {
   data: PropTypes.shape({
-    imprint: PropTypes.shape({
+    faq: PropTypes.shape({
       edges: PropTypes.arrayOf(
         PropTypes.shape({
           node: PropTypes.shape({
@@ -67,11 +67,11 @@ Imprint.propTypes = {
   }).isRequired,
 }
 
-export default Imprint
+export default FAQ
 
 export const pageQuery = graphql`
   {
-    imprint: allMdx(filter: { fileAbsolutePath: { regex: "/imprint/" } }) {
+    faq: allMdx(filter: { fileAbsolutePath: { regex: "/faq/" } }) {
       edges {
         node {
           body

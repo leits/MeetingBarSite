@@ -10,8 +10,8 @@ const StyledNav = styled.nav`
   display: none;
   @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: right;
+    align-items: right;
     width: 31.25rem;
     background: ${({ theme }) => theme.colors.background};
     a {
@@ -60,13 +60,6 @@ const Navbar = () => {
   const { menu, button } = navLinks
   return (
     <StyledNav>
-      {menu.map(({ name, url }, key) => {
-        return (
-          <Link className="nav-link" key={key} to={url}>
-            {name}
-          </Link>
-        )
-      })}
       <Link className="cta-btn" to={button.url}>{button.name}</Link>
     </StyledNav>
   )

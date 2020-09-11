@@ -4,11 +4,13 @@ import styled from "styled-components"
 import Img from "gatsby-image"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { motion } from "framer-motion"
+import { OutboundLink } from 'gatsby-plugin-gtag'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTwitter, faGithub, faTelegramPlane } from "@fortawesome/free-brands-svg-icons"
 
 import { useOnScreen } from "../../hooks"
 import ContentWrapper from "../../styles/ContentWrapper"
 import Underlining from "../../styles/Underlining"
-import Social from "../social"
 
 const StyledSection = styled(motion.section)`
   width: 100%;
@@ -85,9 +87,32 @@ const Contact = ({ content }) => {
                 {frontmatter.email}
               </Underlining>
             </a>
+            <br />
+              < OutboundLink
+                  href="https://github.com/leits"
+                  target="_blank"
+                  rel="nofollow noopener noreferrer"
+                >
+                  <FontAwesomeIcon icon={faGithub} />
+              </OutboundLink>
+              {"  "}
+              < OutboundLink
+                  href="https://twitter.com/leits_dev"
+                  target="_blank"
+                  rel="nofollow noopener noreferrer"
+                >
+                  <FontAwesomeIcon icon={faTwitter} />
+              </OutboundLink>
+              {"  "}
+              < OutboundLink
+                  href="https://t.me/leits"
+                  target="_blank"
+                  rel="nofollow noopener noreferrer"
+                >
+                  <FontAwesomeIcon icon={faTelegramPlane} />
+              </OutboundLink>
           </div>
         </div>
-        <Social width="9rem" padding="0.5rem 1.25rem" withIcon />
       </StyledContentWrapper>
     </StyledSection>
   )
