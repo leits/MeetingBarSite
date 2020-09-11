@@ -121,7 +121,7 @@ const Interests = () => {
       icon: faReddit,
     },
     {
-      name: "1️⃣  One click to join meeting",
+      name: "⚡ One click to join meeting",
       icon: faReddit,
     },
     {
