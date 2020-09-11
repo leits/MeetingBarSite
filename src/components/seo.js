@@ -16,6 +16,7 @@ const SEO = ({ description, lang, meta, title }) => {
             title
             description
             author
+            url
           }
         }
       }
@@ -33,6 +34,10 @@ const SEO = ({ description, lang, meta, title }) => {
       titleTemplate={`%s`}
       meta={[
         {
+          name: `title`,
+          content: title,
+        },
+        {
           name: `description`,
           content: metaDescription,
         },
@@ -49,8 +54,16 @@ const SEO = ({ description, lang, meta, title }) => {
           content: metaDescription,
         },
         {
+          property: `og:url`,
+          content: url,
+        },
+        {
           property: `og:type`,
-          content: `website`,
+          content: `og:product`,
+        },
+        {
+          property: `og:image`,
+          content: `https://meetingbar.onrender.com/static/65bef119ea7e3a1ac01813d422068b08/f9ff4/screenshot.png`,
         },
         {
           name: `twitter:card`,
@@ -63,6 +76,10 @@ const SEO = ({ description, lang, meta, title }) => {
         {
           name: `twitter:title`,
           content: title,
+        },
+        {
+          name: `twitter:image`,
+          content: `https://meetingbar.onrender.com/static/65bef119ea7e3a1ac01813d422068b08/f9ff4/screenshot.png`,
         },
         {
           name: `twitter:description`,
