@@ -16,7 +16,7 @@ const SEO = ({ description, lang, meta, title }) => {
             title
             description
             author
-            url
+            siteUrl
           }
         }
       }
@@ -55,7 +55,7 @@ const SEO = ({ description, lang, meta, title }) => {
         },
         {
           property: `og:url`,
-          content: url,
+          content: site.siteMetadata.siteUrl,
         },
         {
           property: `og:type`,
