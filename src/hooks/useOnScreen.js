@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { object } from "prop-types"
 
 // https://usehooks.com/useOnScreen/
 
@@ -22,7 +23,9 @@ export default (ref, threshold = 0.25) => {
       setTimeout(() => observer.observe(element), 3500)
     }
     return () => {
-      observer.unobserve(element)
+      if (typeof(element) == object) {
+        observer.unobserve(element)
+      }
     }
   }, [ref, threshold])
   return isIntersecting

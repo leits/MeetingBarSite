@@ -17,14 +17,16 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-netlify`,
-    // {
-    //   resolve: `gatsby-plugin-gtag`,
-    //   options: {
-    //     trackingId: `UA-XXXXXXXX-X`,
-    //     head: false,
-    //     anonymize: true,
-    //   },
-    // },
+    `gatsby-plugin-fontawesome-css`,
+    `gatsby-plugin-modal-routing`,
+    {
+      resolve: `gatsby-plugin-gtag`,
+      options: {
+        trackingId: `UA-174005306-1`,
+        head: false,
+        anonymize: true,
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

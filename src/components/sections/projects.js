@@ -251,90 +251,6 @@ const Projects = ({ content }) => {
 
   return (
     <StyledSection id="projects">
-      <StyledContentWrapper>
-        <motion.div
-          ref={tRef}
-          variants={tVariants}
-          animate={tOnScreen ? "visible" : "hidden"}
-        >
-          <h3 className="section-title">{sectionDetails.frontmatter.title}</h3>
-          <div className="counter">
-            {visibleProject} / {projects.length}
-          </div>
-        </motion.div>
-        <div className="projects">
-          {projects.map(project => {
-            const { body, frontmatter } = project.node
-            return (
-              <VisibilitySensor
-                key={frontmatter.position}
-                onChange={() => handleOnScreen(frontmatter.position)}
-                partialVisibility={true}
-                minTopValue={100}
-              >
-                <StyledProject
-                  position={frontmatter.position}
-                  variants={pVariants}
-                  animate={
-                    onScreen[frontmatter.position] ? "visible" : "hidden"
-                  }
-                >
-                  <div className="details">
-                    <div className="category">
-                      {frontmatter.emoji} {frontmatter.category}
-                    </div>
-                    <div className="title">{frontmatter.title}</div>
-                    <MDXRenderer>{body}</MDXRenderer>
-                    <div className="tags">
-                      {frontmatter.tags.map(tag => (
-                        <Underlining
-                          key={tag}
-                          color="secondary"
-                          hoverColor="secondary"
-                        >
-                          {tag}
-                        </Underlining>
-                      ))}
-                    </div>
-                    <div className="links">
-                      {frontmatter.github && (
-                        <a
-                          href={frontmatter.github}
-                          target="_blank"
-                          rel="nofollow noopener noreferrer"
-                          aria-label="External Link"
-                        >
-                          <Icon name="github" color="#888888" />
-                        </a>
-                      )}
-                      {frontmatter.external && (
-                        <a
-                          href={frontmatter.external}
-                          target="_blank"
-                          rel="nofollow noopener noreferrer"
-                          aria-label="External Link"
-                        >
-                          <Icon name="external" color="#888888" />
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                  {/* If image in viewport changes, update state accordingly */}
-                  <VisibilitySensor
-                    onChange={() => setVisibleProject(frontmatter.position)}
-                  >
-                    <Img
-                      className="screenshot"
-                      fluid={frontmatter.screenshot.childImageSharp.fluid}
-                    />
-                  </VisibilitySensor>
-                </StyledProject>
-              </VisibilitySensor>
-            )
-          })}
-        </div>
-      </StyledContentWrapper>
-      {sectionDetails.frontmatter.buttonVisible === "true" && (
         <motion.a
         ref={bRef}
         variants={bVariants}
@@ -349,7 +265,6 @@ const Projects = ({ content }) => {
           {sectionDetails.frontmatter.buttonText}
         </Button>
       </motion.a>
-      )}
     </StyledSection>
   )
 }
