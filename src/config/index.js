@@ -19,8 +19,7 @@ module.exports = {
     socialMedia: [
         {
             name: "Download",
-            url: "https://github.com/leits/MeetingBar/releases/latest",
-            // https://github.com/leits/MeetingBar/releases/latest/download/MeetingBar.dmg
+            url: "https://github.com/leits/MeetingBar/releases/latest/download/MeetingBar.dmg",
         },
         {
             name: "Homebrew",
