@@ -4,9 +4,15 @@ title: "FAQ"
 
 import Underlining from "../../styles/Underlining";
 import { OutboundLink } from 'gatsby-plugin-gtag'
+import { Link } from "gatsby"
 
+<h2>What meeting services are currently supported?</h2>
 
-<h2>I try to install this app, but I have warnings from Apple and can't install/open</h2>
+Google Meet, Zoom, Google Hangouts, Microsoft Teams, Amazon Chime, Cisco Webex, Jitsi, Ring Central, GoToMeeting, GoToWebinar, BlueJeans, 8x8, Demio, Join.me, ZoomGov, Whereby, Uber Conference, Blizz, VSee, StarLeaf, Google Duo, Tencent VooV, Skype, Skype For Bussines
+
+If the service you use isn't supported, <Link to="/contact"><Underlining color="secondary" hoverColor="secondary">fill the form</Underlining></Link>.
+
+<h2>I have a warnings from Apple and can't install/open</h2>
 
 Apple isn't very friendly to software distributed outside of AppStore.
 This app is fully opensource and doesn't have any security issue.
@@ -19,7 +25,7 @@ Follow this official from Apple Support to do this:
 
 * <OutboundLink target="_blank" rel="nofollow noopener noreferrer" href={`https://support.apple.com/en-us/HT202491`}> <Underlining color="secondary" hoverColor="secondary"> Safely open apps on your Mac </Underlining> </OutboundLink> from Apple Support Guides
 
-<h2>I don't use the macOS calendar but have Google Calendar/Outlook/any other calendar. How can I use this app?</h2>
+<h2>How integrate GCalendar/Outlook/any other calendar with app?</h2>
 
 Follow this simple apple guide to integrate your calendar to macOS calendar:
 
@@ -41,4 +47,4 @@ No. The application based on the macOS Calendar API, which is not compatible wit
 
 <h2>There is no question you are looking for?</h2>
 
-Please <OutboundLink target="_blank" rel="nofollow noopener noreferrer" href={`https://github.com/leits/MeetingBar/issues/new`}> <Underlining color="secondary" hoverColor="secondary"> add an issue</Underlining> </OutboundLink>
+Please, <Link to="/contact"><Underlining color="secondary" hoverColor="secondary">fill the form</Underlining></Link>.
