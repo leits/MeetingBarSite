@@ -44,15 +44,16 @@ const StyledInterests = styled.div`
   display: grid;
   /* Calculate how many columns are needed, depending on interests count */
   grid-template-columns: repeat(
-    ${({ itemCount }) => Math.ceil(itemCount / 2)},
+    auto-fill,
     15.625rem
   );
-  grid-template-rows: repeat(2, auto);
-  grid-auto-flow: column;
+  grid-template-rows: repeat(auto-fill, auto);
+  grid-auto-flow: row;
+  align-items: center;
   column-gap: 1rem;
   row-gap: 1rem;
   padding: 0 2.5rem;
-  overflow-x: scroll;
+  overflow-x: hidden;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   &::-webkit-scrollbar {
@@ -114,35 +115,30 @@ const Interests = () => {
   const interests = [
     {
       name: "✅ Fully free",
-      icon: faCreativeCommonsNc
     },
     {
       name: "⏱ Quick and easy setup",
-      icon: faReddit,
     },
     {
       name: "⚡ One click to join meeting",
-      icon: faReddit,
     },
     {
-      name: "💪 Powerful preferences",
-      icon: faReddit,
+      name: "🔒 No user data storing",
     },
     {
       name: "🧑‍💻 Open-source software",
-      icon: faReddit,
+    },
+    {
+      name: "💪 Powerful preferences",
     },
     {
       name: "🗓 Work with all calendars",
-      icon: faReddit,
     },
     {
       name: "🔗 20+ meeting services",
-      icon: faReddit,
     },
     {
       name: "🍃 Light and nice looking",
-      icon: faReddit,
     },
   ]
 
@@ -169,7 +165,7 @@ const Interests = () => {
         // i receives the value of the custom prop - can be used to stagger
         // the animation of each "interest" element
         await iControls.start(i => ({
-          opacity: 1, scaleY: 1, transition: { delay: i * 0.1 }
+          opacity: 1, scaleY: 1, transition: { delay: i * 0.01 }
         }))
         await bControls.start({ opacity: 1, scaleY: 1 })
       }
@@ -184,30 +180,16 @@ const Interests = () => {
       <StyledContentWrapper>
         <h3 className="section-title">{"Features"}</h3>
         <StyledInterests itemCount={interests.length} ref={ref}>
-          {interests.slice(0, shownInterests).map(({ name, icon }, key) => (
-            <motion.div 
+          {interests.slice(0, shownInterests).map(({ name }, key) => (
+            <div 
               className="interest" 
               key={key} 
               custom={key} 
               initial={{ opacity: 0, scaleY: 0 }}
-              animate={iControls}
             >
-                {/* <FontAwesomeIcon className="icon" icon={icon} />  */}
                 {name}
-            </motion.div>
+            </div>
           ))}
-          {shownInterests < interests.length && (
-            <motion.div initial={{ opacity: 0, scaleY: 0 }} animate={bControls}>
-              <Button
-                onClick={() => showMoreItems()}
-                type="button"
-                textAlign="left"
-                color="primary"
-              >
-                + Load more
-              </Button>
-            </motion.div>
-          )}
         </StyledInterests>
       </StyledContentWrapper>
     </StyledSection>

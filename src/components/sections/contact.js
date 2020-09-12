@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import { motion } from "framer-motion"
 import { OutboundLink } from 'gatsby-plugin-gtag'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter, faGithub, faTelegramPlane } from "@fortawesome/free-brands-svg-icons"
@@ -12,7 +11,7 @@ import { useOnScreen } from "../../hooks"
 import ContentWrapper from "../../styles/ContentWrapper"
 import Underlining from "../../styles/Underlining"
 
-const StyledSection = styled(motion.section)`
+const StyledSection = styled.section`
   width: 100%;
   height: auto;
   background: ${({ theme }) => theme.colors.background};
@@ -64,16 +63,9 @@ const StyledContentWrapper = styled(ContentWrapper)`
 const Contact = ({ content }) => {
   const { body, frontmatter } = content[0].node
 
-  // Required for animation
-  const ref = useRef()
-  const onScreen = useOnScreen(ref)
-  const variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 } 
-  }
 
   return (
-    <StyledSection id="contact" ref={ref} variants={variants} animate={onScreen ? "visible" : "hidden"}>
+    <StyledSection id="contact">
       <StyledContentWrapper>
         <h3>{frontmatter.title}</h3>
         <MDXRenderer>{body}</MDXRenderer>

@@ -9,9 +9,11 @@ import ContentWrapper from "../../styles/ContentWrapper"
 import Button from "../../styles/Button"
 
 const StyledSection = styled.section`
-  width: 100%;
-  height: auto;
-  display: flex;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-column: repeat(auto-fill, auto);
+  grid-template-row: repeat(auto-fill, auto);
+
   justify-content: center;
   background: ${({ theme }) => theme.colors.background};
   margin-top: 6rem;
