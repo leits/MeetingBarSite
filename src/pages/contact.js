@@ -144,7 +144,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
 const Contact = () => {
   return(
     <Layout splashScreen={false}>
-      <SEO title="MeetingBar Contact:" meta={[{ name: 'robots', content: 'noindex'}]} />
+      <SEO title="MeetingBar: Contact" meta={[{ name: 'robots', content: 'noindex'}]} />
       <StyledSection>
         <StyledContentWrapper>
             <h1>{"Contact form"}</h1>

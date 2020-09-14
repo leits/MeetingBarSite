@@ -49,6 +49,7 @@ const StyledInterests = styled.div`
   );
   grid-template-rows: repeat(auto-fill, auto);
   grid-auto-flow: row;
+  justify-content: center;
   align-items: center;
   column-gap: 1rem;
   row-gap: 1rem;
