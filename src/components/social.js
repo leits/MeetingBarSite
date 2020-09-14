@@ -106,7 +106,7 @@ const Social = ({ width, padding, fontSize, fontWeight, withIcon }) => (
           key={key}
           href={url}
           target="_blank"
-          rel="nofollow noopener noreferrer"
+          rel="noopener"
           aria-label={name}
           width={width}
           padding={padding}

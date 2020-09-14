@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 import config from "../config"
 
-const { siteShortTitle } = config
+const { siteMetadata } = config
 
 const StyledLogo = styled.div`
   position: relative;
@@ -22,7 +22,7 @@ const StyledLogo = styled.div`
 
 const Logo = ({ size, color }) => (
   <StyledLogo color={color} size={size}>
-    {siteShortTitle}
+    {siteMetadata.siteName}
   </StyledLogo>
 )
 

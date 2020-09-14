@@ -41,7 +41,7 @@ const FAQ = ({ data }) => {
   const { body, frontmatter } = data.faq.edges[0].node
   return (
     <Layout splashScreen={false}>
-      <SEO title="MeetingBar FAQ" meta={[{ name: 'robots', content: 'noindex'}]} />
+      <SEO title="MeetingBar: FAQ" meta={[{ name: 'robots', content: 'noindex'}]} />
       <StyledSection id={frontmatter.title}>
         <StyledContentWrapper>
           <h1>{frontmatter.title}</h1>

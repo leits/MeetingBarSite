@@ -82,7 +82,7 @@ const Projects = ({ content }) => {
         animate={bOnScreen ? "visible" : "hidden"}
         href="https://github.com/leits/MeetingBar"
         target="_blank"
-        rel="nofollow noopener noreferrer"
+        rel="noopener"
         aria-label="External Link"
         className="link"
       >
@@ -96,7 +96,7 @@ const Projects = ({ content }) => {
       animate={bOnScreen ? "visible" : "hidden"}
       href="https://www.patreon.com/meetingbar"
       target="_blank"
-      rel="nofollow noopener noreferrer"
+      rel="noopener"
       aria-label="External Link"
       className="link"
 

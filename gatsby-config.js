@@ -3,10 +3,15 @@ const theme = require('./src/styles/Theme')
 
 module.exports = {
   siteMetadata: {
-    title: config.siteTitle,
-    description: config.siteDescription,
-    author: config.author,
-    siteUrl: config.siteUrl,
+    title: config.siteMetadata.title,
+    siteName: config.siteMetadata.siteName,
+    url: config.siteMetadata.url,
+    description: config.siteMetadata.description,
+    author: config.siteMetadata.author,
+    url: config.siteMetadata.url,
+    language: config.siteMetadata.language,
+    icon: config.siteMetadata.icon,
+    image: config.siteMetadata.image,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

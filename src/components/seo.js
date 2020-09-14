@@ -4,25 +4,12 @@ import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Theme from "../styles/Theme"
-
 const { colors } = Theme
 
 const SEO = ({ description, lang, meta, title }) => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-            siteUrl
-          }
-        }
-      }
-    `
-  )
+  const { site } = useStaticQuery(query)
 
+  const metaTitle = title || site.siteMetadata.title
   const metaDescription = description || site.siteMetadata.description
 
   return (
@@ -35,7 +22,7 @@ const SEO = ({ description, lang, meta, title }) => {
       meta={[
         {
           name: `title`,
-          content: title,
+          content: metaTitle,
         },
         {
           name: `description`,
@@ -43,11 +30,11 @@ const SEO = ({ description, lang, meta, title }) => {
         },
         {
           property: `og:title`,
-          content: title,
+          content: metaTitle,
         },
         {
           property: `og:site_name`,
-          content: title,
+          content: site.siteMetadata.siteName,
         },
         {
           property: `og:description`,
@@ -55,7 +42,7 @@ const SEO = ({ description, lang, meta, title }) => {
         },
         {
           property: `og:url`,
-          content: site.siteMetadata.siteUrl,
+          content: site.siteMetadata.url,
         },
         {
           property: `og:type`,
@@ -63,7 +50,7 @@ const SEO = ({ description, lang, meta, title }) => {
         },
         {
           property: `og:image`,
-          content: `https://meetingbar.onrender.com/static/65bef119ea7e3a1ac01813d422068b08/f9ff4/screenshot.png`,
+          content: site.siteMetadata.image,
         },
         {
           name: `twitter:card`,
@@ -75,7 +62,7 @@ const SEO = ({ description, lang, meta, title }) => {
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: metaTitle,
         },
         {
           name: `twitter:image`,
@@ -106,9 +93,25 @@ SEO.propTypes = {
 }
 
 SEO.defaultProps = {
+  title: null,
   lang: `en`,
   meta: [],
   description: ``,
 }
+
+const query = graphql`
+  query SEO {
+    site {
+      siteMetadata {
+        title
+        siteName
+        description
+        author
+        url
+        image
+      }
+    }
+  }
+`
 
 export default SEO

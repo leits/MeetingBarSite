@@ -173,7 +173,7 @@ const Articles = () => {
                 <OutboundLink
                   href={item.link}
                   target="_blank"
-                  rel="nofollow noopener noreferrer"
+                  rel="noopener"
                   title={item.title}
                   aria-label={item.link}
                   key={item.link}

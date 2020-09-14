@@ -35,6 +35,7 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "react-modal": "^3.11.2",
+    "react-protected-mailto": "^1.0.3",
     "react-store-badges": "^1.5.1",
     "react-visibility-sensor": "^5.1.1",
     "smooth-scroll": "^16.1.3",

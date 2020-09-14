@@ -6,6 +6,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import { OutboundLink } from 'gatsby-plugin-gtag'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter, faGithub, faTelegramPlane } from "@fortawesome/free-brands-svg-icons"
+import Mailto from 'react-protected-mailto'
 
 import { useOnScreen } from "../../hooks"
 import ContentWrapper from "../../styles/ContentWrapper"
@@ -74,16 +75,14 @@ const Contact = ({ content }) => {
           <div className="details">
             <strong>{frontmatter.name}</strong>
             <br />
-            <a href={`mailto:${frontmatter.email}`}>
               <Underlining color="secondary" hoverColor="secondary">
-                {frontmatter.email}
+                <Mailto email={frontmatter.email} headers={{subject:'Question from the MeetingBar website'}}/>
               </Underlining>
-            </a>
             <br />
               < OutboundLink
                   href="https://github.com/leits"
                   target="_blank"
-                  rel="nofollow noopener noreferrer"
+                  rel="noopener"
                 >
                   <FontAwesomeIcon icon={faGithub} />
               </OutboundLink>
@@ -91,7 +90,7 @@ const Contact = ({ content }) => {
               < OutboundLink
                   href="https://twitter.com/leits_dev"
                   target="_blank"
-                  rel="nofollow noopener noreferrer"
+                  rel="noopener"
                 >
                   <FontAwesomeIcon icon={faTwitter} />
               </OutboundLink>
@@ -99,7 +98,7 @@ const Contact = ({ content }) => {
               < OutboundLink
                   href="https://t.me/leits"
                   target="_blank"
-                  rel="nofollow noopener noreferrer"
+                  rel="noopener"
                 >
                   <FontAwesomeIcon icon={faTelegramPlane} />
               </OutboundLink>
