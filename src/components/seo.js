@@ -93,7 +93,7 @@ SEO.propTypes = {
 }
 
 SEO.defaultProps = {
-  title: null,
+  title: ``,
   lang: `en`,
   meta: [],
   description: ``,
