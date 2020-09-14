@@ -7,7 +7,6 @@ module.exports = {
         siteUrl: "https://meetingbar.onrender.com",
         language: "en_US",
         icon: "src/content/favicon.png", // Relative to gatsby-config file
-        image: "src/content/hero/screenshot.png",
     },
 
     splashScreen: false, // Set this to true if you want to use the splash screen
