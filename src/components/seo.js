@@ -2,7 +2,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
-import Screenshot from "../content/hero/screenshot.png"
 
 import Theme from "../styles/Theme"
 const { colors } = Theme
@@ -51,7 +50,7 @@ const SEO = ({ description, lang, meta, title }) => {
         },
         {
           property: `og:image`,
-          content: { Screenshot },
+          content: `https://meetingbar.onrender.com/static/65bef119ea7e3a1ac01813d422068b08/f9ff4/screenshot.png`,
         },
         {
           name: `twitter:card`,
@@ -67,7 +66,7 @@ const SEO = ({ description, lang, meta, title }) => {
         },
         {
           name: `twitter:image`,
-          content: { Screenshot },
+          content: `https://meetingbar.onrender.com/static/65bef119ea7e3a1ac01813d422068b08/f9ff4/screenshot.png`,
         },
         {
           name: `twitter:description`,
