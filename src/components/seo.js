@@ -29,6 +29,10 @@ const SEO = ({ description, lang, meta, title }) => {
           content: metaDescription,
         },
         {
+          name: `image`,
+          content: `https://meetingbar.onrender.com/static/65bef119ea7e3a1ac01813d422068b08/f9ff4/screenshot.png`,
+        },
+        {
           property: `og:title`,
           content: metaTitle,
         },
