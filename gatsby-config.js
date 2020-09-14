@@ -5,10 +5,9 @@ module.exports = {
   siteMetadata: {
     title: config.siteMetadata.title,
     siteName: config.siteMetadata.siteName,
-    url: config.siteMetadata.url,
+    siteUrl: config.siteMetadata.siteUrl,
     description: config.siteMetadata.description,
     author: config.siteMetadata.author,
-    url: config.siteMetadata.url,
     language: config.siteMetadata.language,
     icon: config.siteMetadata.icon,
     image: config.siteMetadata.image,
