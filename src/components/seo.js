@@ -42,7 +42,7 @@ const SEO = ({ description, lang, meta, title }) => {
         },
         {
           property: `og:url`,
-          content: site.siteMetadata.url,
+          content: site.siteMetadata.siteUrl,
         },
         {
           property: `og:type`,
@@ -107,7 +107,7 @@ const query = graphql`
         siteName
         description
         author
-        url
+        siteUrl
         image
       }
     }

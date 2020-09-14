@@ -4,7 +4,7 @@ module.exports = {
         title: "MeetingBar: Your meetings before your eyes",
         siteName: "MeetingBar", // Used as logo text in header, footer, and splash screen
         description: "MeetingBar works on macOS with your calendar. Join and create meetings in one click",
-        url: "https://meetingbar.onrender.com",
+        siteUrl: "https://meetingbar.onrender.com",
         language: "en_US",
         icon: "src/content/favicon.png", // Relative to gatsby-config file
         image: "src/content/hero/screenshot.png",
