@@ -295,7 +295,7 @@ const Hero = ({ content }) => {
             contentLabel="Modal"
             closeTimeoutMS={modalCloseTimeout}
           >
-            <code>homebrew cask install meetingbar</code>
+            <code>brew cask install meetingbar</code>
           </Modal>
         </motion.div>
         <motion.div
