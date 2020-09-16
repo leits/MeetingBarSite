@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react"
 import { Link } from "gatsby"
 import Helmet from "react-helmet"
 import styled from "styled-components"
-import { motion, useAnimation } from "framer-motion"
+import { useAnimation } from "framer-motion"
 
 import Context from "../context"
 import { detectMobileAndTablet, isSSR } from "../utils/"
@@ -11,11 +11,11 @@ import Logo from "./logo"
 import Sidebar from "./sidebar"
 import Navbar from "./navbar"
 
-const StyledHeader = motion.custom(styled.header`
+const StyledHeader = styled.header`
   width: 100%;
   height: ${({ theme }) => theme.headerHeight};
   background: ${({ theme }) => theme.colors.background};
-`)
+`
 
 const StyledContentWrapper = styled(ContentWrapper)`
   && {

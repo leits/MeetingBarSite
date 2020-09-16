@@ -14,11 +14,11 @@ import Underlining from "../../styles/Underlining"
 
 const { shownArticles } = config
 
-const StyledSection = motion.custom(styled.section`
+const StyledSection = styled.section`
   width: 100%;
   height: auto;
   background: ${({ theme }) => theme.colors.background};
-`)
+`
 
 const StyledContentWrapper = styled(ContentWrapper)`
   && {

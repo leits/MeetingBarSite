@@ -245,7 +245,7 @@ const Hero = ({ content }) => {
     <StyledSection id="hero">
       {!isIntroDone && <SplashScreen />}
       <StyledContentWrapper>
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={gControls}>
+        <div initial={{ opacity: 0, y: 20 }} animate={gControls}>
           <h1 className="title">
             <div className="greetings">
               {frontmatter.greetings}
@@ -260,8 +260,8 @@ const Hero = ({ content }) => {
             </AnimatedUnderlining>
             {"."}
           </div>
-        </motion.div>
-        <motion.div initial={{ opacity: 0, x: 20 }} animate={sControls}>
+        </div>
+        <div initial={{ opacity: 0, x: 20 }} animate={sControls}>
             <StyledSocialWrapper itemCount={2}>
               <OutboundLink
                   href="https://github.com/leits/MeetingBar/releases/latest/download/MeetingBar.dmg"
@@ -297,8 +297,8 @@ const Hero = ({ content }) => {
           >
             <code>brew cask install meetingbar</code>
           </Modal>
-        </motion.div>
-        <motion.div
+        </div>
+        <div
           className="image-content"
           ref={iRef}
           variants={iVariants}
@@ -307,7 +307,7 @@ const Hero = ({ content }) => {
             className="screenshot"
             fluid={frontmatter.image.childImageSharp.fluid}
           />
-        </motion.div>
+        </div>
       </StyledContentWrapper>
     </StyledSection>
   )

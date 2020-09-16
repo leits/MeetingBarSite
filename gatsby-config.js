@@ -40,7 +40,7 @@ module.exports = {
         background_color: theme.colors.background,
         theme_color: theme.colors.primary,
         display: `minimal-ui`,
-        icon: config.siteIcon, // This path is relative to the root of the site.
+        icon: config.siteMetadata.icon, // This path is relative to the root of the site.
       },
     },
     {
