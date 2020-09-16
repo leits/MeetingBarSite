@@ -23,7 +23,7 @@ export default (ref, threshold = 0.25) => {
       setTimeout(() => observer.observe(element), 3500)
     }
     return () => {
-      if (typeof(element) == object) {
+      if (typeof element == object) {
         observer.unobserve(element)
       }
     }

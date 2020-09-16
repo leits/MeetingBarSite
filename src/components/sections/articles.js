@@ -1,10 +1,14 @@
 import React, { useState, useEffect, useContext } from "react"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import styled from "styled-components"
 import SkeletonLoader from "tiny-skeleton-loader-react"
-import { motion, useAnimation } from "framer-motion"
-import { faReddit, faHackerNews, faProductHunt } from "@fortawesome/free-brands-svg-icons"
-import { OutboundLink } from 'gatsby-plugin-gtag'
+import { useAnimation } from "framer-motion"
+import {
+  faReddit,
+  faHackerNews,
+  faProductHunt,
+} from "@fortawesome/free-brands-svg-icons"
+import { OutboundLink } from "gatsby-plugin-gtag"
 
 import Context from "../../context"
 import config from "../../config"
@@ -128,36 +132,42 @@ const Articles = () => {
   useEffect(() => {
     const loadArticles = async () => {
       if (isIntroDone) {
-        await articlesControls.start({ opacity: 1, y: 0, transition: { delay: 1 } })
+        await articlesControls.start({
+          opacity: 1,
+          y: 0,
+          transition: { delay: 1 },
+        })
         // MediumRssFeed is set in config.js
         setArticles([
           {
             title: "Posted at /r/apple with 250+ upvotes!",
-            link: "https://www.reddit.com/r/apple/comments/i17qex/your_next_meeting_always_before_your_eyes_in/",
+            link:
+              "https://www.reddit.com/r/apple/comments/i17qex/your_next_meeting_always_before_your_eyes_in/",
             pubDate: "2020-07-31",
             categories: ["", "", "Reddit"],
-            icon: faReddit
+            icon: faReddit,
           },
           {
             title: "Raised up to #1 with 130+ points",
             link: "https://news.ycombinator.com/item?id=23991111",
             pubDate: "2020-07-30",
             categories: ["", "", "HackerNews"],
-            icon: faHackerNews
+            icon: faHackerNews,
           },
           {
             title: "Launched with 400+ upvotes!",
             link: "https://www.producthunt.com/posts/meetingbar",
-            description: "MeetingBar is a macOS menu bar app for your calendar meetings. Integrated with Google Meet and Zoom so you can quickly join meetings from event or create ad hoc meeting.",
+            description:
+              "MeetingBar is a macOS menu bar app for your calendar meetings. Integrated with Google Meet and Zoom so you can quickly join meetings from event or create ad hoc meeting.",
             pubDate: "2020-05-31",
             categories: ["", "", "ProductHunt"],
-            icon: faProductHunt
+            icon: faProductHunt,
           },
         ])
       }
     }
     loadArticles()
-  },[isIntroDone, articlesControls, MAX_ARTICLES])
+  }, [isIntroDone, articlesControls, MAX_ARTICLES])
 
   return (
     <StyledSection
@@ -180,8 +190,7 @@ const Articles = () => {
                 >
                   <div className="card">
                     <span className="category">
-                      <FontAwesomeIcon icon={item.icon} />
-                      {" "}
+                      <FontAwesomeIcon icon={item.icon} />{" "}
                       <Underlining color="tertiary" hoverColor="secondary">
                         {item.categories[2]}
                       </Underlining>
@@ -192,24 +201,21 @@ const Articles = () => {
                 </OutboundLink>
               ))
             : [...Array(MAX_ARTICLES)].map((i, key) => (
-              <div className="card" key={key}>
-                <SkeletonLoader 
-                  background="#f2f2f2"
-                  height="1.5rem" 
-                  style={{ marginBottom: ".5rem" }}
-                />
-                <SkeletonLoader 
-                  background="#f2f2f2" 
-                  height="4rem"
-                />
-                <SkeletonLoader 
-                  background="#f2f2f2" 
-                  height=".75rem" 
-                  width="50%" 
-                  style={{ marginTop: ".5rem" }}
-                />
-              </div>
-            ))}
+                <div className="card" key={key}>
+                  <SkeletonLoader
+                    background="#f2f2f2"
+                    height="1.5rem"
+                    style={{ marginBottom: ".5rem" }}
+                  />
+                  <SkeletonLoader background="#f2f2f2" height="4rem" />
+                  <SkeletonLoader
+                    background="#f2f2f2"
+                    height=".75rem"
+                    width="50%"
+                    style={{ marginTop: ".5rem" }}
+                  />
+                </div>
+              ))}
         </div>
       </StyledContentWrapper>
     </StyledSection>

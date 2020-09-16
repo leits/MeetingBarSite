@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react"
 import styled from "styled-components"
-import {useAnimation } from "framer-motion"
+import { useAnimation } from "framer-motion"
 
 import { detectMobileAndTablet, isSSR } from "../../utils"
-import { useOnScreen }  from "../../hooks/"
+import { useOnScreen } from "../../hooks/"
 import ContentWrapper from "../../styles/ContentWrapper"
 
 const StyledSection = styled.section`
@@ -40,10 +40,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
 const StyledInterests = styled.div`
   display: grid;
   /* Calculate how many columns are needed, depending on interests count */
-  grid-template-columns: repeat(
-    auto-fill,
-    15.625rem
-  );
+  grid-template-columns: repeat(auto-fill, 15.625rem);
   grid-template-rows: repeat(auto-fill, auto);
   grid-auto-flow: row;
   justify-content: center;
@@ -108,7 +105,6 @@ const StyledInterests = styled.div`
 `
 
 const Interests = () => {
-
   const shownItems = 10
   const interests = [
     {
@@ -163,7 +159,9 @@ const Interests = () => {
         // i receives the value of the custom prop - can be used to stagger
         // the animation of each "interest" element
         await iControls.start(i => ({
-          opacity: 1, scaleY: 1, transition: { delay: i * 0.01 }
+          opacity: 1,
+          scaleY: 1,
+          transition: { delay: i * 0.01 },
         }))
         await bControls.start({ opacity: 1, scaleY: 1 })
       }
@@ -183,7 +181,7 @@ const Interests = () => {
               custom={key}
               initial={{ opacity: 0, scaleY: 0 }}
             >
-                {name}
+              {name}
             </div>
           ))}
         </StyledInterests>

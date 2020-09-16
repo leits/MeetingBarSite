@@ -1,14 +1,17 @@
-import React, { useRef } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import { OutboundLink } from 'gatsby-plugin-gtag'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTwitter, faGithub, faTelegramPlane } from "@fortawesome/free-brands-svg-icons"
-import Mailto from 'react-protected-mailto'
+import { OutboundLink } from "gatsby-plugin-gtag"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+  faTwitter,
+  faGithub,
+  faTelegramPlane,
+} from "@fortawesome/free-brands-svg-icons"
+import Mailto from "react-protected-mailto"
 
-import { useOnScreen } from "../../hooks"
 import ContentWrapper from "../../styles/ContentWrapper"
 import Underlining from "../../styles/Underlining"
 
@@ -64,44 +67,49 @@ const StyledContentWrapper = styled(ContentWrapper)`
 const Contact = ({ content }) => {
   const { body, frontmatter } = content[0].node
 
-
   return (
     <StyledSection id="contact">
       <StyledContentWrapper>
         <h3>{frontmatter.title}</h3>
         <MDXRenderer>{body}</MDXRenderer>
         <div className="profile">
-          <Img className="avatar" fluid={frontmatter.profileImage.childImageSharp.fluid} />
+          <Img
+            className="avatar"
+            fluid={frontmatter.profileImage.childImageSharp.fluid}
+          />
           <div className="details">
             <strong>{frontmatter.name}</strong>
             <br />
-              <Underlining color="secondary" hoverColor="secondary">
-                <Mailto email={frontmatter.email} headers={{subject:'Question from the MeetingBar website'}}/>
-              </Underlining>
+            <Underlining color="secondary" hoverColor="secondary">
+              <Mailto
+                email={frontmatter.email}
+                headers={{ subject: "Question from the MeetingBar website" }}
+              />
+            </Underlining>
             <br />
-              < OutboundLink
-                  href="https://github.com/leits"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <FontAwesomeIcon icon={faGithub} />
-              </OutboundLink>
-              {"  "}
-              < OutboundLink
-                  href="https://twitter.com/leits_dev"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <FontAwesomeIcon icon={faTwitter} />
-              </OutboundLink>
-              {"  "}
-              < OutboundLink
-                  href="https://t.me/leits"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <FontAwesomeIcon icon={faTelegramPlane} />
-              </OutboundLink>
+            <OutboundLink
+              href="https://github.com/leits"
+              target="_blank"
+              rel="noopener"
+            >
+              <FontAwesomeIcon icon={faGithub} />
+            </OutboundLink>
+            {"  "}
+            <OutboundLink
+              href="https://twitter.com/leits_dev"
+              target="_blank"
+              rel="noopener"
+            >
+              <FontAwesomeIcon icon={faTwitter} />
+            </OutboundLink>
+            {"  "}
+            <OutboundLink
+              href="https://t.me/leits"
+              target="_blank"
+              rel="noopener"
+            >
+              <FontAwesomeIcon icon={faTelegramPlane} />
+            </OutboundLink>
           </div>
         </div>
       </StyledContentWrapper>

@@ -3,30 +3,28 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import { motion, useAnimation } from "framer-motion"
-import { navigate } from "gatsby";
-import Modal from "react-modal";
+import { navigate } from "gatsby"
+import Modal from "react-modal"
 
-import { useOnScreen } from "../../hooks/"
 import Context from "../../context/"
 import ContentWrapper from "../../styles/ContentWrapper"
 import Underlining from "../../styles/Underlining"
-import SplashScreen from "../splashScreen"
 import Theme from "../../styles/Theme"
 import { OutboundLink } from "gatsby-plugin-gtag"
 
-Modal.setAppElement(`#___gatsby`);
+Modal.setAppElement(`#___gatsby`)
 
 const modalStyles = {
   content: {
     padding: 20,
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
   },
-};
+}
 
 const StyledSection = styled.section`
   width: 100%;
@@ -61,16 +59,6 @@ const StyledContentWrapper = styled(ContentWrapper)`
       display: flex;
       justify-content: flex-start;
       align-items: center;
-    }
-    .emoji {
-      margin-left: 0.75rem;
-      width: 2.2rem;
-      height: 2.2rem;
-      @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
-        margin-left: 1rem;
-        width: 3rem;
-        height: 3rem;
-      }
     }
     .title {
       margin-bottom: 1.5rem;
@@ -191,7 +179,7 @@ const StyledSocialProfile = styled.p`
 const AnimatedUnderlining = motion.custom(Underlining)
 
 const Hero = ({ content }) => {
-  const { frontmatter, body } = content[0].node
+  const { frontmatter } = content[0].node
   const { isIntroDone } = useContext(Context).state
 
   // Controls to orchestrate animations of greetings, emoji, social profiles, underlining
@@ -234,22 +222,19 @@ const Hero = ({ content }) => {
     pageLoadSequence()
   }, [isIntroDone, eControls, gControls, sControls, uControls])
 
-  const [modalOpen, setModalOpen] = useState(false);
-  const modalCloseTimeout = 10;
+  const [modalOpen, setModalOpen] = useState(false)
+  const modalCloseTimeout = 10
   const closeModal = () => {
-    setModalOpen(false);
-    setTimeout(() => navigate(`/`), modalCloseTimeout);
-  };
+    setModalOpen(false)
+    setTimeout(() => navigate(`/`), modalCloseTimeout)
+  }
 
   return (
     <StyledSection id="hero">
-      {!isIntroDone && <SplashScreen />}
       <StyledContentWrapper>
         <div initial={{ opacity: 0, y: 20 }} animate={gControls}>
           <h1 className="title">
-            <div className="greetings">
-              {frontmatter.greetings}
-            </div>
+            <div className="greetings">{frontmatter.greetings}</div>
             {frontmatter.title}
           </h1>
           <div className="description">
@@ -262,31 +247,31 @@ const Hero = ({ content }) => {
           </div>
         </div>
         <div initial={{ opacity: 0, x: 20 }} animate={sControls}>
-            <StyledSocialWrapper itemCount={2}>
-              <OutboundLink
-                  href="https://github.com/leits/MeetingBar/releases/latest/download/MeetingBar.dmg"
-                  target="_blank"
-                  rel="noopener"
-                >
-                <StyledSocialProfile
-                  fontSize=".95rem"
-                  padding=".3rem 1.25rem"
-                  width="auto"
-                  aria-label={"Download"}
-                >
-                  {"Download"}
-                </StyledSocialProfile>
-              </OutboundLink>
-              <a onClick={() => setModalOpen(true)}>
-                <StyledSocialProfile
-                  fontSize=".95rem"
-                  padding=".3rem 1.25rem"
-                  width="auto"
-                  aria-label={"Homebrew"}
-                >
-                  {"Homebrew"}
-                </StyledSocialProfile>
-              </a>
+          <StyledSocialWrapper itemCount={2}>
+            <OutboundLink
+              href="https://github.com/leits/MeetingBar/releases/latest/download/MeetingBar.dmg"
+              target="_blank"
+              rel="noopener"
+            >
+              <StyledSocialProfile
+                fontSize=".95rem"
+                padding=".3rem 1.25rem"
+                width="auto"
+                aria-label={"Download"}
+              >
+                {"Download"}
+              </StyledSocialProfile>
+            </OutboundLink>
+            <a href="#" onClick={() => setModalOpen(true)}>
+              <StyledSocialProfile
+                fontSize=".95rem"
+                padding=".3rem 1.25rem"
+                width="auto"
+                aria-label={"Homebrew"}
+              >
+                {"Homebrew"}
+              </StyledSocialProfile>
+            </a>
           </StyledSocialWrapper>
           <Modal
             isOpen={modalOpen}
@@ -298,11 +283,7 @@ const Hero = ({ content }) => {
             <code>brew cask install meetingbar</code>
           </Modal>
         </div>
-        <div
-          className="image-content"
-          ref={iRef}
-          variants={iVariants}
-        >
+        <div className="image-content" ref={iRef} variants={iVariants}>
           <Img
             className="screenshot"
             fluid={frontmatter.image.childImageSharp.fluid}
@@ -317,7 +298,6 @@ Hero.propTypes = {
   content: PropTypes.arrayOf(
     PropTypes.shape({
       node: PropTypes.shape({
-        body: PropTypes.string.isRequired,
         frontmatter: PropTypes.object.isRequired,
       }).isRequired,
     }).isRequired

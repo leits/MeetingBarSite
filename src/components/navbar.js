@@ -57,10 +57,11 @@ const StyledNav = styled.nav`
 `
 
 const Navbar = () => {
-  const { menu, button } = navLinks
   return (
     <StyledNav>
-      <Link className="cta-btn" to={button.url}>{button.name}</Link>
+      <Link className="cta-btn" to={navLinks.button.url}>
+        {navLinks.button.name}
+      </Link>
     </StyledNav>
   )
 }

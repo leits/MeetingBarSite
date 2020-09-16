@@ -14,14 +14,14 @@ const StyledSection = styled.section`
   height: auto;
   background: ${({ theme }) => theme.colors.background};
   h1 {
-      font-size: 1.5rem;
+    font-size: 1.5rem;
   }
   h2 {
-      font-size: 1.25rem;
+    font-size: 1.25rem;
   }
   h3 {
-      font-size: 1rem;
-      margin-bottom: 1rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
   }
   #fs-frm input,
   #fs-frm select,
@@ -45,9 +45,9 @@ const StyledSection = styled.section`
   #fs-frm label,
   #fs-frm legend,
   #fs-frm ::placeholder {
-    font-size: .825rem;
-    margin-bottom: .5rem;
-    padding-top: .2rem;
+    font-size: 0.825rem;
+    margin-bottom: 0.5rem;
+    padding-top: 0.2rem;
     display: flex;
     align-items: baseline;
   }
@@ -57,9 +57,9 @@ const StyledSection = styled.section`
   #fs-frm select,
   #fs-frm textarea,
   #fs-frm #card-element {
-    border: 1px solid rgba(0,0,0,0.2);
-    background-color: rgba(255,255,255,0.9);
-    padding: .75em 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 0.75em 1rem;
     margin-bottom: 1.5rem;
   }
   #fs-frm input:focus,
@@ -103,7 +103,7 @@ const StyledSection = styled.section`
     appearance: checkbox;
     display: inline-block;
     width: auto;
-    margin: 0 .5em 0 0 !important;
+    margin: 0 0.5em 0 0 !important;
   }
 
   #fs-frm [type="radio"] {
@@ -142,26 +142,45 @@ const StyledContentWrapper = styled(ContentWrapper)`
 `
 
 const Contact = () => {
-  return(
+  return (
     <Layout splashScreen={false}>
-      <SEO title="MeetingBar: Contact" meta={[{ name: 'robots', content: 'noindex'}]} />
+      <SEO
+        title="MeetingBar: Contact"
+        meta={[{ name: "robots", content: "noindex" }]}
+      />
       <StyledSection>
         <StyledContentWrapper>
-            <h1>{"Contact form"}</h1>
-            <form id="fs-frm" name="simple-contact-form" acceptCharset="utf-8" action="https://formspree.io/xoqkgrnw" method="post">
-              <fieldset id="fs-frm-inputs">
-                <label htmlFor="email-address">Email</label>
-                <input type="email" name="_replyto" id="email-address" required></input>
-                <label htmlFor="message">Message</label>
-                <textarea rows="5" name="message" id="message" placeholder="" required></textarea>
-                <input type="submit" value="Submit"></input>
-              </fieldset>
-            </form>
+          <h1>{"Contact form"}</h1>
+          <form
+            id="fs-frm"
+            name="simple-contact-form"
+            acceptCharset="utf-8"
+            action="https://formspree.io/xoqkgrnw"
+            method="post"
+          >
+            <fieldset id="fs-frm-inputs">
+              <label htmlFor="email-address">Email</label>
+              <input
+                type="email"
+                name="_replyto"
+                id="email-address"
+                required
+              ></input>
+              <label htmlFor="message">Message</label>
+              <textarea
+                rows="5"
+                name="message"
+                id="message"
+                placeholder=""
+                required
+              ></textarea>
+              <input type="submit" value="Submit"></input>
+            </fieldset>
+          </form>
         </StyledContentWrapper>
       </StyledSection>
     </Layout>
   )
 }
-
 
 export default Contact
