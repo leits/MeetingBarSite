@@ -23,6 +23,7 @@ module.exports = {
     `gatsby-plugin-netlify`,
     `gatsby-plugin-fontawesome-css`,
     `gatsby-plugin-modal-routing`,
+    `gatsby-plugin-preload-link-crossorigin`,
     {
       resolve: `gatsby-plugin-gtag`,
       options: {
