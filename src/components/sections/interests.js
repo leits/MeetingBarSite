@@ -1,13 +1,10 @@
 import React, { useState, useEffect, useRef } from "react"
 import styled from "styled-components"
-import { motion, useAnimation } from "framer-motion"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faReddit, faCreativeCommonsNc } from "@fortawesome/free-brands-svg-icons"
+import {useAnimation } from "framer-motion"
 
 import { detectMobileAndTablet, isSSR } from "../../utils"
 import { useOnScreen }  from "../../hooks/"
 import ContentWrapper from "../../styles/ContentWrapper"
-import Button from "../../styles/Button"
 
 const StyledSection = styled.section`
   width: 100%;
@@ -174,18 +171,16 @@ const Interests = () => {
     sequence()
   }, [onScreen, shownInterests, iControls, bControls])
 
-  const showMoreItems = () => setShownInterests(shownInterests + 4)
-
   return (
     <StyledSection id="features">
       <StyledContentWrapper>
         <h3 className="section-title">{"Features"}</h3>
         <StyledInterests itemCount={interests.length} ref={ref}>
           {interests.slice(0, shownInterests).map(({ name }, key) => (
-            <div 
-              className="interest" 
-              key={key} 
-              custom={key} 
+            <div
+              className="interest"
+              key={key}
+              custom={key}
               initial={{ opacity: 0, scaleY: 0 }}
             >
                 {name}

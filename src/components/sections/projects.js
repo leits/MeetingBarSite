@@ -19,42 +19,15 @@ const StyledSection = styled.section `
 `
 
 const Projects = ({content}) => {
-    const sectionDetails = content[0].node
     const projects = content.slice(1, content.length)
-
-    // visibleProject is needed to show which project is currently being viewed in
-    // the horizontal slider on mobile and tablet
-    const [visibleProject,
-      setVisibleProject] = useState(1)
 
     // projects don't track the visibility by using the onScreen hook instead they
     // use react-visibility-sensor, therefore their visibility is also stored
     // differently
     const [onScreen,
       setOnScreen] = useState({})
-    const handleOnScreen = el => {
-      if (!onScreen[el]) {
-        const updatedOnScreen = {
-          ...onScreen
-        }
-        updatedOnScreen[el] = true
-        setOnScreen(updatedOnScreen)
-      }
-    }
-    const pVariants = {
-      hidden: {
-        opacity: 0,
-        y: 20
-      },
-      visible: {
-        opacity: 1,
-        y: 0
-      }
-    }
 
     useEffect(() => {
-      // mobile and tablet only: set first project as visible in the horizontal slider
-      setVisibleProject(1)
       // required for animations: set visibility for all projects to "false" initially
       let initial = {}
       projects.forEach(project => {
@@ -62,18 +35,6 @@ const Projects = ({content}) => {
       })
       setOnScreen(initial)
     }, [])
-
-    // Required for animating the title
-    const tRef = useRef()
-    const tOnScreen = useOnScreen(tRef)
-    const tVariants = {
-      hidden: {
-        opacity: 0
-      },
-      visible: {
-        opacity: 1
-      }
-    }
 
     // Required for animating the button
     const bRef = useRef()

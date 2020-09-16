@@ -1,23 +1,49 @@
-import React, { useEffect, useContext, useRef } from "react"
+import React, { useEffect, useContext, useRef, useState } from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import Img from "gatsby-image"
-import { MDXRenderer } from "gatsby-plugin-mdx"
 import { motion, useAnimation } from "framer-motion"
+import { navigate } from "gatsby";
+import Modal from "react-modal";
 
 import { useOnScreen } from "../../hooks/"
 import Context from "../../context/"
 import ContentWrapper from "../../styles/ContentWrapper"
 import Underlining from "../../styles/Underlining"
-import Social from "../social"
 import SplashScreen from "../splashScreen"
 import Theme from "../../styles/Theme"
+import { OutboundLink } from "gatsby-plugin-gtag"
+
+Modal.setAppElement(`#___gatsby`);
+
+const modalStyles = {
+  content: {
+    padding: 20,
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)'
+  },
+};
 
 const StyledSection = styled.section`
   width: 100%;
   height: auto;
   background: ${({ theme }) => theme.colors.background};
 `
+
+const code = styled.p`{
+  font-family: Monaco, monospace;
+  font-size: $base-font-size;
+  line-height: 100%;
+  background-color: #eee;
+  padding: 50px;
+  letter-spacing: -0.05em;
+  word-break: normal;
+  /border-radius: 5px;/
+}`
 
 const StyledContentWrapper = styled(ContentWrapper)`
   && {
@@ -71,6 +97,97 @@ const StyledContentWrapper = styled(ContentWrapper)`
   }
 `
 
+const StyledSocialWrapper = styled.div`
+  display: grid;
+  /* Calculate columns, depending on how many profiles there are */
+  grid-template-columns: repeat(${({ itemCount }) => itemCount + 1}, auto);
+  justify-content: start;
+  justify-items: start;
+
+  margin-left: -2.5rem;
+  margin-right: -2.5rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+
+  overflow-x: scroll;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Workaround: https://stackoverflow.com/questions/38993170/last-margin-padding-collapsing-in-flexbox-grid-layout */
+  &::after {
+    content: "";
+    width: 2.5rem;
+  }
+
+  /* Show scrollbar if desktop and wrapper width > viewport width */
+  @media (hover: hover) {
+    &::-webkit-scrollbar {
+      display: block;
+      -webkit-appearance: none;
+    }
+
+    &::-webkit-scrollbar:horizontal {
+      height: 0.8rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 8px;
+      border: 0.2rem solid white;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #fff;
+      border-radius: 8px;
+    }
+  }
+
+  a {
+    margin-right: 0.5rem;
+    margin-bottom: 0.75rem;
+    @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
+      margin-right: 1rem;
+    }
+  }
+`
+
+const StyledSocialProfile = styled.p`
+  width: ${({ width }) => (width ? width : "auto")};
+  height: auto;
+  background: ${({ theme }) => theme.colors.background};
+  background: linear-gradient(
+    to right,
+    ${({ theme }) => theme.colors.primary} 50%,
+    ${({ theme }) => theme.colors.background} 50%
+  );
+  background-size: 205% 100%;
+  background-position: right bottom;
+  border-radius: ${({ theme }) => theme.borderRadius};
+  border: 0.125rem solid ${({ theme }) => theme.colors.primary};
+  padding: ${({ padding }) => (padding ? padding : ".3rem 1.25rem")};
+  transition: all 0.1s ease-out;
+  font-size: ${({ fontSize }) => (fontSize ? fontSize : "1rem")};
+  font-weight: 500;
+  color: ${({ theme }) => theme.colors.primary};
+  &:hover {
+    background-position: left bottom;
+    color: #ffffff;
+  }
+  &:hover svg {
+    /* Change svg color to white */
+    filter: brightness(0) invert(1);
+  }
+  svg {
+    height: 1rem;
+    width: 1rem;
+    margin-right: 0.5rem;
+    margin-bottom: -0.05rem;
+  }
+`
+
 const AnimatedUnderlining = motion.custom(Underlining)
 
 const Hero = ({ content }) => {
@@ -85,7 +202,6 @@ const Hero = ({ content }) => {
 
   // Required for animating the image
   const iRef = useRef()
-  const iOnScreen = useOnScreen(iRef)
   const iVariants = {
     hidden: { opacity: 0, x: 20 },
     visible: { opacity: 1, x: 0 },
@@ -117,7 +233,14 @@ const Hero = ({ content }) => {
     }
     pageLoadSequence()
   }, [isIntroDone, eControls, gControls, sControls, uControls])
-  
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const modalCloseTimeout = 10;
+  const closeModal = () => {
+    setModalOpen(false);
+    setTimeout(() => navigate(`/`), modalCloseTimeout);
+  };
+
   return (
     <StyledSection id="hero">
       {!isIntroDone && <SplashScreen />}
@@ -126,18 +249,9 @@ const Hero = ({ content }) => {
           <h1 className="title">
             <div className="greetings">
               {frontmatter.greetings}
-              {/* <motion.div animate={eControls} style={{ originX: 0.7, originY: 0.7 }}>
-                <Img className="emoji" fluid={frontmatter.icon.childImageSharp.fluid} />
-              </motion.div> */}
             </div>
             {frontmatter.title}
           </h1>
-          {/* <h2 className="subtitle">
-            {frontmatter.subtitlePrefix}{" "}
-            <AnimatedUnderlining animate={uControls} color="tertiary" big>
-              {frontmatter.subtitle}
-            </AnimatedUnderlining>
-          </h2> */}
           <div className="description">
             {frontmatter.subtitlePrefix}{" "}
             {/* Hover state color can be set in useEffect hook */}
@@ -148,7 +262,41 @@ const Hero = ({ content }) => {
           </div>
         </motion.div>
         <motion.div initial={{ opacity: 0, x: 20 }} animate={sControls}>
-          <Social fontSize=".95rem" padding=".3rem 1.25rem" width="auto" />
+            <StyledSocialWrapper itemCount={2}>
+              <OutboundLink
+                  href="https://github.com/leits/MeetingBar/releases/latest/download/MeetingBar.dmg"
+                  target="_blank"
+                  rel="noopener"
+                >
+                <StyledSocialProfile
+                  fontSize=".95rem"
+                  padding=".3rem 1.25rem"
+                  width="auto"
+                  aria-label={"Download"}
+                >
+                  {"Download"}
+                </StyledSocialProfile>
+              </OutboundLink>
+              <a onClick={() => setModalOpen(true)}>
+                <StyledSocialProfile
+                  fontSize=".95rem"
+                  padding=".3rem 1.25rem"
+                  width="auto"
+                  aria-label={"Homebrew"}
+                >
+                  {"Homebrew"}
+                </StyledSocialProfile>
+              </a>
+          </StyledSocialWrapper>
+          <Modal
+            isOpen={modalOpen}
+            onRequestClose={closeModal}
+            style={modalStyles}
+            contentLabel="Modal"
+            closeTimeoutMS={modalCloseTimeout}
+          >
+            <code>homebrew cask install meetingbar</code>
+          </Modal>
         </motion.div>
         <motion.div
           className="image-content"

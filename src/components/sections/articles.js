@@ -12,7 +12,7 @@ import { parseDate } from "../../utils"
 import ContentWrapper from "../../styles/ContentWrapper"
 import Underlining from "../../styles/Underlining"
 
-const { mediumRssFeed, shownArticles } = config
+const { shownArticles } = config
 
 const StyledSection = motion.custom(styled.section`
   width: 100%;
@@ -123,7 +123,7 @@ const Articles = () => {
   const { isIntroDone } = useContext(Context).state
   const [articles, setArticles] = useState()
   const articlesControls = useAnimation()
-  
+
   // Load and display articles after the splashScreen sequence is done
   useEffect(() => {
     const loadArticles = async () => {
