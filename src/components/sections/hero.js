@@ -247,7 +247,31 @@ const Hero = ({ content }) => {
           </div>
         </div>
         <div initial={{ opacity: 0, x: 20 }} animate={sControls}>
-          <StyledSocialWrapper itemCount={2}>
+          <StyledSocialWrapper itemCount={3}>
+            <OutboundLink
+              href="https://apps.apple.com/us/app/id1532419400"
+              target="_blank"
+              rel="noopener"
+            >
+              <StyledSocialProfile
+                fontSize=".95rem"
+                padding=".3rem 1.25rem"
+                width="auto"
+                aria-label={"App Store"}
+              >
+                {"App Store"}
+              </StyledSocialProfile>
+            </OutboundLink>
+            <a href="#" onClick={() => setModalOpen(true)}>
+              <StyledSocialProfile
+                fontSize=".95rem"
+                padding=".3rem 1.25rem"
+                width="auto"
+                aria-label={"Homebrew"}
+              >
+                {"Homebrew"}
+              </StyledSocialProfile>
+            </a>
             <OutboundLink
               href="https://github.com/leits/MeetingBar/releases/latest/download/MeetingBar.dmg"
               target="_blank"
@@ -262,16 +286,6 @@ const Hero = ({ content }) => {
                 {"Download"}
               </StyledSocialProfile>
             </OutboundLink>
-            <a href="#" onClick={() => setModalOpen(true)}>
-              <StyledSocialProfile
-                fontSize=".95rem"
-                padding=".3rem 1.25rem"
-                width="auto"
-                aria-label={"Homebrew"}
-              >
-                {"Homebrew"}
-              </StyledSocialProfile>
-            </a>
           </StyledSocialWrapper>
           <Modal
             isOpen={modalOpen}
