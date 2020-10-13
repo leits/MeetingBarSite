@@ -272,7 +272,7 @@ const Hero = ({ content }) => {
                 {"Homebrew"}
               </StyledSocialProfile>
             </a>
-            <OutboundLink
+            {/* <OutboundLink
               href="https://github.com/leits/MeetingBar/releases/latest/download/MeetingBar.dmg"
               target="_blank"
               rel="noopener"
@@ -285,7 +285,7 @@ const Hero = ({ content }) => {
               >
                 {"Download"}
               </StyledSocialProfile>
-            </OutboundLink>
+            </OutboundLink> */}
           </StyledSocialWrapper>
           <Modal
             isOpen={modalOpen}
