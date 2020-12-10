@@ -85,7 +85,9 @@ const SEO = ({ description, lang, meta, title }) => {
           content: colors.primary,
         },
       ].concat(meta)}
-    />
+    >
+      <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "aeb9729cea6c42e5b362fd37f7354947"}'></script>
+    </Helmet>
   )
 }
 
