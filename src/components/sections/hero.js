@@ -294,7 +294,7 @@ const Hero = ({ content }) => {
             contentLabel="Modal"
             closeTimeoutMS={modalCloseTimeout}
           >
-            <code>brew cask install meetingbar</code>
+            <code>brew install --cask meetingbar</code>
           </Modal>
         </div>
         <div className="image-content" ref={iRef} variants={iVariants}>
