@@ -75,12 +75,12 @@ const StyledContentWrapper = styled(ContentWrapper)`
     }
     .image-content {
       width: 100%;
-      max-width: 30rem;
+      max-width: 43rem;
       margin-top: 1rem;
       margin-left: 0;
-      @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
-        margin-left: 2rem;
-      }
+      // @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
+      //   margin-left: 2rem;
+      // }
     }
   }
 `
