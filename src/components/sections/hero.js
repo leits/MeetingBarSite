@@ -92,6 +92,7 @@ const StyledSocialWrapper = styled.div`
   justify-content: start;
   justify-items: start;
 
+  margin-top: -1rem;
   margin-left: -2.5rem;
   margin-right: -2.5rem;
   padding-left: 2.5rem;
