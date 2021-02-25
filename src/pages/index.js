@@ -9,6 +9,7 @@ import Articles from "../components/sections/articles"
 import Interests from "../components/sections/interests"
 import Projects from "../components/sections/projects"
 import Contact from "../components/sections/contact"
+import Newsletter from "../components/sections/newsletter"
 import { splashScreen } from "../config"
 
 const IndexPage = ({ data }) => (
@@ -19,6 +20,7 @@ const IndexPage = ({ data }) => (
     <Interests />
     <Projects />
     <Contact content={data.contact.edges} />
+    <Newsletter />
   </Layout>
 )
 
