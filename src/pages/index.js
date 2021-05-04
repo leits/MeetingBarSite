@@ -20,7 +20,6 @@ const IndexPage = ({ data }) => (
     <Interests />
     <Projects />
     <Contact content={data.contact.edges} />
-//     <Newsletter />
   </Layout>
 )
 
