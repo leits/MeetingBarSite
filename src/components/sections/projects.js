@@ -41,7 +41,7 @@ const Projects = () => {
           rel="noopener"
           aria-label="External Link"
         >
-          <Button textAlign="center" color="primary" center>
+          <Button textAlign="center" color="button" center>
             {"Visit on github"}
           </Button>
         </OutboundLink>
@@ -56,7 +56,7 @@ const Projects = () => {
           rel="noopener"
           aria-label="External Link"
         >
-          <Button textAlign="center" color="primary" center>
+          <Button textAlign="center" color="button" center>
             {"Support on Patreon"}
           </Button>
         </OutboundLink>
