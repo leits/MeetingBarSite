@@ -30,7 +30,7 @@ const SEO = ({ description, lang, meta, title }) => {
         },
         {
           name: `image`,
-          content: `https://meetingbar.onrender.com/static/65bef119ea7e3a1ac01813d422068b08/f9ff4/screenshot.png`,
+          content: `https://github.com/leits/MeetingBar/raw/master/screenshot.png`,
         },
         {
           property: `og:title`,
@@ -54,7 +54,7 @@ const SEO = ({ description, lang, meta, title }) => {
         },
         {
           property: `og:image`,
-          content: `https://meetingbar.onrender.com/static/65bef119ea7e3a1ac01813d422068b08/f9ff4/screenshot.png`,
+          content: `https://github.com/leits/MeetingBar/raw/master/screenshot.png`,
         },
         {
           name: `twitter:card`,
@@ -70,7 +70,7 @@ const SEO = ({ description, lang, meta, title }) => {
         },
         {
           name: `twitter:image`,
-          content: `https://meetingbar.onrender.com/static/65bef119ea7e3a1ac01813d422068b08/f9ff4/screenshot.png`,
+          content: `https://github.com/leits/MeetingBar/raw/master/screenshot.png`,
         },
         {
           name: `twitter:description`,
