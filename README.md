@@ -1,3 +1,3 @@
-# MeetingBar site v2
+# MeetingBar site
 
 https://meetingbar.onrender.com
