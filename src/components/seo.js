@@ -86,9 +86,8 @@ const SEO = ({ description, lang, meta, title }) => {
         },
       ].concat(meta)}
     >
-      <script type="text/javascript" src="https://t.mentioned.app/track/track.js" id="mentioned-by-script" token="59VRCPDpR8S3ADAF7fWUAxBIuWQ-2sZR_SnHXeWEnHtNz813MXi15ioPTsjnYfVJVCI" host="meetingbar.onrender.com"></script>
       <script async src="https://cdn.splitbee.io/sb.js"></script>
-      <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "aeb9729cea6c42e5b362fd37f7354947"}'></script>
+      <script async defer data-website-id="b665c9d9-e8cd-4a51-bdd3-ff18e8301aca" src="https://umami.leits.me/umami.js"></script>
     </Helmet>
   )
 }
