@@ -18,7 +18,7 @@
     "gatsby-plugin-fontawesome-css": "^1.0.0",
     "gatsby-plugin-gtag": "^1.0.12",
     "gatsby-plugin-manifest": "^2.3.2",
-    "gatsby-plugin-mdx": "^1.0.62",
+    "gatsby-plugin-mdx": "^2.14.1",
     "gatsby-plugin-modal-routing": "^1.2.0",
     "gatsby-plugin-netlify": "^2.1.30",
     "gatsby-plugin-offline": "^3.0.24",
