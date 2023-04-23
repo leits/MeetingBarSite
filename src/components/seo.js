@@ -87,7 +87,7 @@ const SEO = ({ description, lang, meta, title }) => {
       ].concat(meta)}
     >
       <script async src="https://cdn.splitbee.io/sb.js"></script>
-      <script async defer data-website-id="b665c9d9-e8cd-4a51-bdd3-ff18e8301aca" src="https://umami.leits.me/umami.js"></script>
+      <script async defer data-website-id="b665c9d9-e8cd-4a51-bdd3-ff18e8301aca" src="https://umami.leits.me/script.js"></script>
     </Helmet>
   )
 }
