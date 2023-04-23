@@ -253,6 +253,7 @@ const Hero = ({ content }) => {
               href="https://apps.apple.com/us/app/id1532419400"
               target="_blank"
               rel="noopener"
+              data-umami-event="App Store"
             >
               <StyledSocialProfile
                 fontSize=".95rem"
@@ -263,7 +264,7 @@ const Hero = ({ content }) => {
                 {"App Store"}
               </StyledSocialProfile>
             </OutboundLink>
-            <a href="#" onClick={() => setModalOpen(true)}>
+            <a href="#" data-umami-event="Homebrew" onClick={() => setModalOpen(true)}>
               <StyledSocialProfile
                 fontSize=".95rem"
                 padding=".3rem 1.25rem"
