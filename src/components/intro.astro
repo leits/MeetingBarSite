@@ -1,30 +1,44 @@
 ---
 import { Icon } from "astro-icon";
 import ContentSection from "~/components/content-section.astro";
+import { Image } from "@astrojs/image/components";
+import logoImage from '../assets/logomark.png';
 ---
 
-<ContentSection title="Just ship less" id="intro">
-  <Icon slot="eyebrow" name="logomark" class="h-32" />
+<ContentSection title="Be on time" id="intro">
+  <Image slot="eyebrow" src={logoImage} alt="MeetingBar logo" height={200} />
+
   <Fragment slot="lead">
-    Astro is a new kind of site builder for the
+    MeetingBar works on macOS with your calendar. Join and create meetings in <span
+      class="text-primary"
+    >
+      one click</span
+    >.
+    <!-- Astro is a new kind of site builder for the
     <span class="text-primary">modern</span> web.
     <span class="text-primary">Lightning-fast</span>
-    performance meets <span class="text-primary">powerful</span> developer experience.
+    performance meets <span class="text-primary">powerful</span> developer experience. -->
   </Fragment>
-  <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
+  <div class="grid grid-cols-1 gap-2 sm:grid-cols-2 content-center ">
     <a
-      href="https://docs.astro.build/"
-      class="flex items-center justify-center gap-3 border-2 border-current px-6 py-4"
+      href="https://apps.apple.com/us/app/meetingbar-for-meet-zoom-co/id1532419400?mt=12&itsct=apps_box_badge&itscg=30200"
+      style="display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;"
+      ><img
+        src="https://tools.applemediaservices.com/api/badges/download-on-the-mac-app-store/black/en-us?size=250x83&releaseDate=1601769600"
+        alt="Download on the Mac App Store"
+        style="border-radius: 13px; width: 250px; height: 83px;"
+      /></a
     >
-      <Icon pack="mdi" name="telescope" class="h-8" />
-      <span>Read the docs</span>
-    </a>
-    <a
-      href="https://astro.new/"
-      class="flex items-center justify-center gap-3 border-2 border-current px-6 py-4"
+    <code
+      class="inline-flex items-center space-x-4 rounded-lg bg-gray-800 p-4 m-2 pl-6 text-left text-white text-sm sm:text-base"
     >
-      <Icon pack="mdi" name="rocket" class="h-8" />
-      <span>Try it out</span>
-    </a>
+      <span class="flex gap-4">
+        <span class="shrink-0 text-gray-500"> $</span>
+
+        <span class="flex-1 pr-1">
+          <span id="brew_command">brew install meetingbar</span>
+        </span>
+      </span>
+    </code>
   </div>
 </ContentSection>

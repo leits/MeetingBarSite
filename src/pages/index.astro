@@ -7,6 +7,10 @@ import Header from "~/components/header.astro";
 import Intro from "~/components/intro.astro";
 import Showcase from "~/components/showcase.astro";
 import Splash from "~/components/splash.astro";
+import Support from "~/components/support.astro";
+import Stats from "~/components/stats.astro";
+
+
 import "~/styles/index.css";
 
 const { generator, site } = Astro;
@@ -65,8 +69,10 @@ const description =
     <Splash />
     <div class="space-y-24 px-8 py-32">
       <Intro />
+      <Stats />
       <Features />
       <Compatibility />
+      <Support />
       <Showcase />
     </div>
     <Footer />

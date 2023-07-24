@@ -1,7 +1,6 @@
 ---
-import { Picture } from "@astrojs/image/components";
-import { Icon } from "astro-icon";
-import astronautImage from "~/assets/astronaut.png";
+import { Image, Picture } from "@astrojs/image/components";
+import dropdownImage from "~/assets/dropdown.png";
 import HeroImage from "~/components/hero-image.astro";
 import Starfield from "~/components/starfield.astro";
 import GitHubCorner from "./github-corner.astro";
@@ -20,22 +19,34 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
     <h2
       class="flex flex-col gap-2 self-end sm:gap-4 sm:self-auto sm:justify-self-end"
     >
-      <Icon name="logomark" class="h-24 text-white md:h-32" />
+      <!-- <Icon name="logomark" class="h-24 text-white md:h-32" /> -->
+      <!-- <Image src={logoImage} alt="MeetingBar logo" height={160} class="self-center" /> -->
       <div
         class="gradient-text text-center font-extrabold tracking-tighter text-8xl"
       >
-        Build fast
-        <br /> websites,
-        <br /> faster.
+        Meetings
+        <br /> at your
+        <br /> fingertips
+      </div>
+      <div class="self-center pt-10">
+        <a
+          href="https://apps.apple.com/us/app/meetingbar-for-meet-zoom-co/id1532419400?mt=12&itsct=apps_box_badge&itscg=30200"
+          style="display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;"
+          ><img
+            src="https://tools.applemediaservices.com/api/badges/download-on-the-mac-app-store/black/en-us?size=250x83&releaseDate=1601769600"
+            alt="Download on the Mac App Store"
+            style="border-radius: 13px; width: 250px; height: 83px;"
+          /></a
+        >
       </div>
     </h2>
     <div
       id="astronaut"
-      class="w-2/3 max-w-3xl self-start sm:w-10/12 sm:self-auto sm:justify-self-start"
+      class="w-1/3 max-w-3xl self-start sm:w-10/12 sm:self-auto sm:justify-self-start"
     >
       <Picture
         class="h-full w-full object-cover"
-        src={astronautImage}
+        src={dropdownImage}
         widths={widths}
         sizes={sizes}
         loading="eager"

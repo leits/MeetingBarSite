@@ -1,89 +1,115 @@
 ---
+import type { ImageMetadata } from "@astrojs/image/dist/vite-plugin-astro-image";
+
 import CompatibilityList from "~/components/compatibility-list.astro";
 import ContentSection from "~/components/content-section.astro";
-import type { CompatibilityItem } from "~/types";
+import logo8x8 from "../assets/services/8x8.png";
+import logoChime from "../assets/services/amazon_chime.png";
+import logoBlueJeans from "../assets/services/bluejeans.svg";
+import logoChorus from "../assets/services/chorus.svg";
+import logoCoScreen from "../assets/services/coscreen.png";
+import logoDiscord from "../assets/services/discord.svg";
+import logoDemio from "../assets/services/demio.png";
+import logoDemoDesk from "../assets/services/demodesk.svg";
+import logoFacebookWorkplace from "../assets/services/facebook_workplace.svg";
+import logoFacetime from "../assets/services/facetime.svg";
+import logoFeishu from "../assets/services/feishu.png";
+import logoGather from "../assets/services/gather.svg";
+import logoGong from "../assets/services/gong.svg";
+import logoGoogleDuo from "../assets/services/google_duo.svg";
+import logoGoogleHangouts from "../assets/services/google_hangouts.svg";
+import logoGoogleMeet from "../assets/services/google_meet.svg";
+import logoGoToMeeting from "../assets/services/gotomeeting.svg";
+import logoGoToWebinar from "../assets/services/gotowebinar.svg";
+import logoJitsi from "../assets/services/jitsi.svg";
+import logoJoinMe from "../assets/services/joinme.svg";
+import logoLark from "../assets/services/lark.png";
+import logoLifesize from "../assets/services/lifesize.svg";
+import logoLivestorm from "../assets/services/livestorm.svg";
+import logoMSTeams from "../assets/services/ms_teams.svg";
+import logoOvice from "../assets/services/ovice.svg";
+import logoPop from "../assets/services/pop.svg";
+import logoPreply from "../assets/services/preply.png";
+import logoRingcentral from "../assets/services/ringcentral.svg";
+import logoSkype from "../assets/services/skype.svg";
+import logoSkypeb from "../assets/services/skype_business.svg";
+import logoSlack from "../assets/services/slack.svg";
+import logoStarleaf from "../assets/services/starleaf.svg";
+import logoTVmeeting from "../assets/services/teamviewer_meeting.png";
+import logoTeemyco from "../assets/services/teemyco.svg";
+import logoTuple from "../assets/services/tuple.png";
+import logoUC from "../assets/services/uberconference.png";
+import logoUserzoom from "../assets/services/userzoom.png";
+import logoVimeo from "../assets/services/vimeo.svg";
+import logoVonage from "../assets/services/vonage.png";
+import logoVowel from "../assets/services/vowel.svg";
+import logoVoov from "../assets/services/voov.png";
+import logoVsee from "../assets/services/vsee.png";
+import logoVunue from "../assets/services/vunue.svg";
+import logoWebex from "../assets/services/webex.png";
+import logoWhereby from "../assets/services/whereby.png";
+import logoYoutube from "../assets/services/youtube.svg";
+import logoZhumu from "../assets/services/zhumu.png";
+import logoZohocliq from "../assets/services/zoho_cliq.svg";
+import logoZoom from "../assets/services/zoom.svg";
 
-const frameworks: Array<CompatibilityItem> = [
-  {
-    title: "React",
-    icon: "frameworks/react",
-    url: "https://reactjs.org/",
-  },
-  {
-    title: "Preact",
-    icon: "frameworks/preact",
-    url: "https://preactjs.com/",
-  },
-  {
-    title: "Svelte",
-    icon: "frameworks/svelte",
-    url: "https://svelte.dev/",
-  },
-  {
-    title: "Vue",
-    icon: "frameworks/vue",
-    url: "https://vuejs.org/",
-  },
-  {
-    title: "Solid",
-    icon: "frameworks/solid",
-    url: "https://www.solidjs.com/",
-  },
-  {
-    title: "Lit",
-    icon: "frameworks/lit",
-    url: "https://lit.dev/",
-  },
-];
 
-const platforms: Array<CompatibilityItem> = [
-  {
-    title: "Netlify",
-    icon: "platforms/netlify",
-    url: "https://www.netlify.com/",
-  },
-  {
-    title: "Vercel",
-    icon: "platforms/vercel",
-    url: "https://vercel.com/",
-  },
-  {
-    title: "Cloudflare",
-    icon: "fa-brands:cloudflare",
-    url: "https://pages.cloudflare.com/",
-  },
-  {
-    title: "Render",
-    icon: "platforms/render",
-    url: "https://render.com/",
-  },
-  {
-    title: "GitHub",
-    icon: "fa-brands:github",
-    url: "https://pages.github.com/",
-  },
-  {
-    title: "GitLab",
-    icon: "fa-brands:gitlab",
-    url: "https://docs.gitlab.com/ee/user/project/pages/",
-  },
+const frameworks: Array<ImageMetadata> = [
+  logoZoom,
+  logoGoogleMeet,
+  logoWebex,
+  logoChime,
+  logoRingcentral,
+  logoWhereby,
+  logoMSTeams,
+  logoSlack,
+  logoSkype,
+  logoGoToMeeting,
+  logoDiscord,
+  logoYoutube,
+  logoFacetime,
+  logoGoToWebinar,
+  logoPop,
+  logoGather,
+  logoVowel,
+  logoCoScreen,
+  logoLivestorm,
+  logoVoov,
+  logoPreply,
+  logoDemoDesk,
+  logoJitsi,
+  logoUserzoom,
+  logoSkypeb,
+  logoVunue,
+  logoLifesize,
+  logoDemio,
+  logoFeishu,
+  logoTVmeeting,
+  logoTeemyco,
+  logoVimeo,
+  logoOvice,
+  logoBlueJeans,
+  logoLark,
+  logoVsee,
+  logoTuple,
+  logoZhumu,
+  logoGong,
+  logoUC,
+  logoJoinMe,
+  logoStarleaf,
+  logoZohocliq,
+  logoGoogleHangouts,
+  logoGoogleDuo,
+  logoVonage,
+  logoChorus,
+  logo8x8,
+  logoFacebookWorkplace,
 ];
 ---
 
-<ContentSection title="Compatibility" id="compatibility">
+<ContentSection title="Services" id="compatibility" class="bg-gray-100">
   <Fragment slot="lead">
-    Astro <span class="text-primary">plays nice</span>. Bring your own UI{" "}
-    <span class="text-primary">framework</span>
-    and deploy to your favorite <span class="text-primary">platform</span>.
+    MeetingBar supports <span class="text-primary">50+</span> meeting services.
   </Fragment>
-  <CompatibilityList
-    items={frameworks}
-    title="Frameworks"
-    url="https://docs.astro.build/core-concepts/framework-components/"
-  />
-  <CompatibilityList
-    items={platforms}
-    title="Platforms"
-    url="https://docs.astro.build/guides/deploy/"
-  />
+  <CompatibilityList items={frameworks} />
 </ContentSection>
