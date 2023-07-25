@@ -20,9 +20,7 @@ const { items } = Astro.props;
       {
         items.map((item) => (
           <li>
-            <a class="flex flex-col items-center gap-2" href={item.url}>
-              <Image src={item} alt="logo" height={40} />
-            </a>
+            <Image src={item} alt="logo" height={40} />
           </li>
         ))
       }
