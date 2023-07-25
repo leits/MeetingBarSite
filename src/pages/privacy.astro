@@ -1,0 +1,216 @@
+---
+import "@fontsource-variable/inter";
+import { Icon } from "astro-icon";
+import ThemeSwitcher from "~/components/theme-switcher.astro";
+import type { NavItem } from "~/types";
+import { Image } from "@astrojs/image/components";
+import logoImage from "../assets/logomark.png";
+import Footer from "~/components/footer.astro";
+
+
+const navItems: Array<NavItem> = [
+  { title: "Features", url: "/#features" },
+  { title: "Integrations", url: "/#integrations" },
+  { title: "Contact", url: "/#contact" },
+];
+
+import "~/styles/index.css";
+
+const { generator, site } = Astro;
+const image = new URL("social.png", site);
+const description =
+  "Meetings at your fingertips. MeetingBar works on macOS with your calendar. Join and create meetings in one click.";
+---
+
+<!DOCTYPE html>
+<html lang="en" class="h-full motion-safe:scroll-smooth" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <meta name="generator" content={generator} />
+
+    <title>MeetingBar Privacy</title>
+    <meta name="description" content={description} />
+
+    <!-- social media -->
+    <meta property="og:title" content="MeetingBar" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:url" content={site} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- initialize theme -->
+    <script is:inline>
+      const themeSaved = localStorage.getItem("theme");
+
+      if (themeSaved) {
+        document.documentElement.dataset.theme = themeSaved;
+      } else {
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        document.documentElement.dataset.theme = prefersDark ? "dark" : "light";
+      }
+
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", (event) => {
+          if (!localStorage.getItem("theme")) {
+            document.documentElement.dataset.theme = event.matches
+              ? "dark"
+              : "light";
+          }
+        });
+    </script>
+  </head>
+  <body
+    class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
+  >
+    <header
+      id="page-header"
+      class="fixed bottom-auto top-0 z-20 flex w-full items-center justify-between border-b border-default bg-default px-8 py-4 text-default"
+    >
+      <a class="flex items-center gap-3 hover:!text-default" href="/">
+        <Image src={logoImage} alt="MeetingBar logo" height={40} />
+        <h1 class="font-bold">MeetingBar</h1>
+        <!-- <Icon name="logomark" class="h-10" />
+    <Icon name="wordmark" class="hidden h-4 sm:block" /> -->
+      </a>
+      <div>
+        <div class="flex items-center gap-6">
+          <nav class="hidden sm:block">
+            <ul class="flex items-center gap-6">
+              {
+                navItems.map(({ title, url }) => (
+                  <li>
+                    <a class="text-sm" href={url}>
+                      {title}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </nav>
+          <button
+            id="open-nav-button"
+            type="button"
+            class="btn sm:hidden"
+            aria-label="Navigation"
+          >
+            <Icon pack="mdi" name="menu" class="h-8" />
+          </button>
+          <ThemeSwitcher />
+        </div>
+        <div id="menu-modal" class="modal hidden" aria-hidden="true">
+          <div class="fixed inset-0 bg-default px-8 py-4 text-default">
+            <div class="space-y-4" role="dialog" aria-modal="true">
+              <header class="text-right">
+                <button
+                  id="close-nav-button"
+                  type="button"
+                  class="btn"
+                  aria-label="Close navigation"
+                >
+                  <Icon pack="mdi" name="close" class="h-8" />
+                </button>
+              </header>
+              <div class="flex justify-center">
+                <Icon name="logomark" class="h-16" />
+              </div>
+              <nav>
+                <ul class="flex flex-col">
+                  {
+                    navItems.map(({ title, url }) => (
+                      <li>
+                        <a class="block py-4 text-center text-xl" href={url}>
+                          {title}
+                        </a>
+                      </li>
+                    ))
+                  }
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="space-y-24 px-8 py-32">
+      <section
+        id="support"
+        class="flex scroll-mt-24 flex-col items-center gap-4 space-y-8 py-6"
+      >
+        <div class="flex flex-col items-center gap-4">
+          <h2 class="text-center font-extrabold tracking-tight text-6xl">
+            Privacy Policy
+          </h2>
+        </div>
+        <p class="max-w-xl font-bold text-black">
+          MeetingBar does not collect data or personal information. The program
+          settings are saved according to the recommended and built-in
+          capabilities of macOS. Calendar information is used only for features
+          available to users. No information ever leaves the user's device.
+          <br />
+          <br />
+          If you have any questions or suggestions regarding this privacy policy,
+          do not hesitate to contact me.
+        </p>
+      </section>
+    </div>
+    <Footer />
+    <script>
+      import MicroModal from "micromodal";
+      import invariant from "tiny-invariant";
+
+      const menuModalId = "menu-modal";
+
+      const header = document.querySelector("#page-header") as HTMLElement;
+      const page = document.documentElement;
+      const menu = document.querySelector(`#${menuModalId} ul`);
+      const openNavButton = document.querySelector("#open-nav-button");
+      const closeNavButton = document.querySelector("#close-nav-button");
+
+      invariant(header, "header should not be null");
+      invariant(menu, "menu should not be null");
+      invariant(openNavButton, "openNavButton should not be null");
+      invariant(closeNavButton, "closeNavButton should not be null");
+
+      const openMenu = () => {
+        MicroModal.show(menuModalId, { disableScroll: true });
+      };
+
+      const closeMenu = () => {
+        MicroModal.close(menuModalId);
+      };
+
+      openNavButton.addEventListener("click", openMenu);
+      closeNavButton.addEventListener("click", closeMenu);
+
+      document.addEventListener("scroll", () => {
+        const d = page.clientHeight - page.scrollTop - header.offsetHeight;
+        header.classList.toggle("fixed-header", d < 0);
+      });
+
+      menu.addEventListener("click", (event) => {
+        if ((event.target as HTMLElement).tagName === "A") {
+          closeMenu();
+        }
+      });
+    </script>
+    <noscript>
+      <style>
+        #open-nav-button {
+          display: none;
+        }
+      </style>
+    </noscript>
+
+    <style>
+      .modal.is-open {
+        @apply block;
+      }
+    </style>
+  </body>
+</html>

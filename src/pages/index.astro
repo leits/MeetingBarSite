@@ -14,9 +14,9 @@ import Stats from "~/components/stats.astro";
 import "~/styles/index.css";
 
 const { generator, site } = Astro;
-const image = new URL("social.jpg", site);
+const image = new URL("social.png", site);
 const description =
-  "Build fast websites, faster. Astro is a new kind of site builder for the modern web. Lightning-fast performance meets powerful developer experience.";
+  "Meetings at your fingertips. MeetingBar works on macOS with your calendar. Join and create meetings in one click.";
 ---
 
 <!DOCTYPE html>
@@ -24,14 +24,14 @@ const description =
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.png" type="image/png" />
     <meta name="generator" content={generator} />
 
-    <title>Astro Landing Page</title>
+    <title>MeetingBar</title>
     <meta name="description" content={description} />
 
     <!-- social media -->
-    <meta property="og:title" content="Astro" />
+    <meta property="og:title" content="MeetingBar" />
     <meta property="og:type" content="website" />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
@@ -75,6 +75,7 @@ const description =
       <Support />
       <Showcase />
     </div>
+    <hr>
     <Footer />
   </body>
 </html>
