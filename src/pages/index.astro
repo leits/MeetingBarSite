@@ -14,7 +14,7 @@ import Stats from "~/components/stats.astro";
 import "~/styles/index.css";
 
 const { generator, site } = Astro;
-const image = new URL("social.png", site);
+const image = new URL("social.png",  Astro.url);
 const description =
   "Meetings at your fingertips. MeetingBar works on macOS with your calendar. Join and create meetings in one click.";
 ---
