@@ -15,8 +15,37 @@ import "~/styles/index.css";
 
 const { generator, site } = Astro;
 const image = new URL("social.png",  Astro.url);
+
+const title =
+  "MeetingBar - Simplify Meetings on macOS with One-Click Access";
 const description =
-  "Meetings at your fingertips. MeetingBar works on macOS with your calendar. Join and create meetings in one click.";
+  "MeetingBar is a macOS menu bar app that lets you view and join upcoming meetings across 50+ services, including Zoom, Google Meet, Teams, and more. Stay organized and join meetings with a single click, without switching between apps.";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "MeetingBar",
+  "operatingSystem": "macOS",
+  "applicationCategory": "ProductivityApplication",
+  "description": "MeetingBar is a macOS menu bar app to manage and join online meetings with one click.",
+  "url": "https://meetingbar.app",
+  "downloadUrl": "https://apps.apple.com/us/app/meetingbar/id1532419400?mt=12&itsct=apps_box_badge&itscg=30200",
+  "softwareVersion": "Latest",
+  "author": {
+    "@type": "Person",
+    "name": "Andrii Leitsius"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "552"
+  }
+};
+
 ---
 
 <!DOCTYPE html>
@@ -27,19 +56,19 @@ const description =
     <link rel="icon" href="/favicon.png" type="image/png" />
     <meta name="generator" content={generator} />
 
-    <title>MeetingBar</title>
+    <title>{title}</title>
     <meta name="description" content={description} />
 
     <!-- social media -->
-    <meta property="og:title" content="MeetingBar" />
+    <meta property="og:title" content={title} />
     <meta property="og:type" content="website" />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
     <meta property="og:url" content={site} />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <script async src="https://cdn.splitbee.io/sb.js"></script>
     <script async defer data-website-id="b665c9d9-e8cd-4a51-bdd3-ff18e8301aca" src="https://umami.leits.me/script.js"></script>
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
     <!-- initialize theme -->
     <script is:inline>
